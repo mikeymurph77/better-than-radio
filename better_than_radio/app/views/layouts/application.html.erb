@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<%= link_to image_tag("BetterThanRadioLogo.png"), root_path %>
+<%= link_to image_tag("logo.png"), root_path %>
 
 <% if signed_in? %>
   <p>You are signed in as <%= current_user.firstname %> (<%= link_to "Sign out", session_path, method: :delete %>?)</p>
