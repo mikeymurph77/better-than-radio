@@ -1,13 +1,25 @@
 <%= form_for @user do |form| %>
+  <%= render "errors", target: @user %>
   <div>
-    <%= form.label :email %>
+    <%= form.label :username, "Username:" %>
+    <%= form.text_field :username %>
+  </div>
+  <div>
+    <%= form.label :firstname, "First Name:" %>
+    <%= form.text_field :firstname %>
+  </div>
+  <div>
+    <%= form.label :email, "Email:" %>
     <%= form.email_field :email %>
   </div>
   <div>
-    <%= form.label :password %>
+    <%= form.label :password, "Password:" %>
     <%= form.password_field :password %>
   </div>
   <div>
-    <%= form.submit "Sign up" %>
+    <%= form.submit "Sign Up" %>
+  </div>
+  <div>
+    <p>Already a member? (<%= link_to "Sign In", [:new, :session] %>)</p>
   </div>
 <% end %>

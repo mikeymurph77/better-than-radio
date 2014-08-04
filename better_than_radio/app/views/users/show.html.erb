@@ -1,0 +1,4 @@
+<h2>Your Profile</h2>
+<% if current_user == @user %>
+  <%= link_to "Edit Profile", [:edit, :profile] %>
+<% end %>
