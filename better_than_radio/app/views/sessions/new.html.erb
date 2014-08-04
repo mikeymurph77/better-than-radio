@@ -1,13 +1,17 @@
 <%= form_for :session, url: session_path do |form| %>
   <div>
-    <%= form.label :email %>
-    <%= form.email_field :email %>
+    <%= form.label :username, "Username:" %>
+    <%= form.text_field :username %>
   </div>
   <div>
-    <%= form.label :password %>
+    <%= form.label :password, "Password:" %>
     <%= form.password_field :password %>
   </div>
   <div>
     <%= form.submit "Sign in" %>
   </div>
 <% end %>
+
+<div>
+  <p>Not a member yet? (<%= link_to "Sign Up", [:new, :user] %>)</p>
+</div>
