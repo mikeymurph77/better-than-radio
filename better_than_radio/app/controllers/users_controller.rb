@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
+  skip_before_action :require_account, only: [:new, :create]
 
   def new
     @user = User.new
@@ -10,7 +11,7 @@ class UsersController < ApplicationController
 
     if @user.valid?
       sign_in(@user)
-      redirect_to root_path
+      redirect_to :create_account
     else
       render :new
     end
