@@ -3,6 +3,6 @@ class ArtistsController <ApplicationController
     @artist = Artist.new
   end
 
-  def create    
+  def create 
   end
 end
