@@ -2,7 +2,7 @@
   <h2><%= pluralize target.errors.count, "error" %> prevented this form from saving: </h2>
   <ul>
     <% target.errors.full_messages.each do |message| %>
-      <li><%= message %> </li>
-    <%end%>
+      <li><%= message %></li>
+    <% end %>
    </ul>
 <% end %>
