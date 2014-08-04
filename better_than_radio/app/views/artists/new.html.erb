@@ -1,0 +1,25 @@
+<%= form_for @artist do |form| %>
+  <%= render "errors", target: @artist %>
+  <div>
+    <%= form.label :artistname, "Venue Name:" %>
+    <%= form.text_field :artistname %>
+  </div>
+  <div>
+    <%= form.label :genre, "Location:" %>
+    <%= form.text_field :genre %>
+  </div>
+  <div>
+    <%= form.label :contactname, "Contact Name:" %>
+    <%= form.text_field :contactname %>
+  </div>
+  <div>
+    <%= form.label :contactphone, "Venue Phone Number:" %>
+    <%= form.text_field :contactphone, placeholder: "xxx-xxx-xxxx" %>
+  </div>
+  <div>
+    <%= form.submit "Sign Up!" %>
+  </div>
+  <div>
+    <p>Didn't mean to create an artist account? (<%= link_to "Go Back", :create_profile %>)</p>
+  </div>
+<% end %>

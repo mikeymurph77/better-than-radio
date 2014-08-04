@@ -1,0 +1,29 @@
+<%= form_for @venue do |form| %>
+  <%= render "errors", target: @venue %>
+  <div>
+    <%= form.label :venuename, "Venue Name:" %>
+    <%= form.text_field :venuename %>
+  </div>
+  <div>
+    <%= form.label :location, "Location:" %>
+    <%= form.text_field :location %>
+  </div>
+  <div>
+    <%= form.label :contactname, "Contact Name:" %>
+    <%= form.text_field :contactname %>
+  </div>
+  <div>
+    <%= form.label :phonenumber, "Venue Phone Number:" %>
+    <%= form.text_field :phonenumber, placeholder: "xxx-xxx-xxxx"  %>
+  </div>
+  <div>
+    <%= form.label :capacity, "Maximum Capacity:" %>
+    <%= form.number_field :capacity %>
+  </div>
+  <div>
+    <%= form.submit "Sign Up!" %>
+  </div>
+  <div>
+    <p>Didn't mean to create a venue account? (<%= link_to "Go Back", :create_profile %>)</p>
+  </div>
+<% end %>

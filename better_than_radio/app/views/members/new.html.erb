@@ -1,0 +1,14 @@
+<%= form_for @member do |form| %>
+  <%= render "errors", target: @member %>
+  <div>
+    <%= form.label :firstname, "Venue Name:" %>
+    <%= form.text_field :firstname %>
+  </div>
+  <div>
+    <%= form.label :location, "Location:" %>
+    <%= form.text_field :location %>
+  </div>
+  <div>
+    <p>Didn't mean to create a standard account? (<%= link_to "Go Back", :create_profile %>)</p>
+  </div>
+<% end %>
