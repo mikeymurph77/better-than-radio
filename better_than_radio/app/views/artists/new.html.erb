@@ -1,11 +1,11 @@
 <%= form_for @artist do |form| %>
   <%= render "errors", target: @artist %>
   <div>
-    <%= form.label :artistname, "Venue Name:" %>
+    <%= form.label :artistname, "Stage Name:" %>
     <%= form.text_field :artistname %>
   </div>
   <div>
-    <%= form.label :genre, "Location:" %>
+    <%= form.label :genre, "Genre:" %>
     <%= form.text_field :genre %>
   </div>
   <div>
@@ -13,7 +13,7 @@
     <%= form.text_field :contactname %>
   </div>
   <div>
-    <%= form.label :contactphone, "Venue Phone Number:" %>
+    <%= form.label :contactphone, "Contact Phone Number:" %>
     <%= form.text_field :contactphone, placeholder: "xxx-xxx-xxxx" %>
   </div>
   <div>
