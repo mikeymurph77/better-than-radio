@@ -4,6 +4,6 @@ class RemoveFirstNameFromUsers < ActiveRecord::Migration
   end
 
   def down
-    add_column :users, :firstname, :string, null: false
+    add_column :users, :firstname, :string, null: false, default: ""
   end
 end

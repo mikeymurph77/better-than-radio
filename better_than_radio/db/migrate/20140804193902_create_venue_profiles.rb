@@ -12,5 +12,7 @@ class CreateVenueProfiles < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    add_index :venues, :name, unique: true
   end
 end
