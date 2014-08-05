@@ -1,3 +1,3 @@
 class Fan < ActiveRecord::Base
-  has_many :users, as: :accounts
+  has_one :user, as: :accounts
 end

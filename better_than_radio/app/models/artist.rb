@@ -1,3 +1,3 @@
 class Artist < ActiveRecord::Base
-  has_many :users, as: :accounts
+  has_one :users, as: :accounts
 end
