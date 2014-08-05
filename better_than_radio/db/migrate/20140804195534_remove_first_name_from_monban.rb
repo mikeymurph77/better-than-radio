@@ -1,5 +1,9 @@
 class RemoveFirstNameFromMonban < ActiveRecord::Migration
-  def change
+  def up
     remove_column :users, :firstname
+  end
+
+  def down
+    add_column :users, :firstname, :string
   end
 end

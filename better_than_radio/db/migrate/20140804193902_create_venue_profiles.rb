@@ -1,11 +1,14 @@
 class CreateVenueProfiles < ActiveRecord::Migration
   def change
-    create_table :venue_profiles do |t|
-      t.string :venuename, null: false
-      t.string :location, null: false
-      t.string :phonenumber, null: false
+    create_table :venues do |t|
+      t.string :name, null: false
+      t.string :address, null: false
+      t.string :city, null: false
+      t.string :state, null: false
+      t.string :phone, null: false
       t.string :contactname, null: false
       t.integer :capacity, null: false
+      t.string :notes, null: false, default: ""
 
       t.timestamps null: false
     end

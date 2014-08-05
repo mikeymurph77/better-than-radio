@@ -1,8 +1,8 @@
 <%= form_for @artist do |form| %>
   <%= render "errors", target: @artist %>
   <div>
-    <%= form.label :artistname, "Stage Name:" %>
-    <%= form.text_field :artistname %>
+    <%= form.label :name, "Stage Name:" %>
+    <%= form.text_field :name %>
   </div>
   <div>
     <%= form.label :genre, "Genre:" %>
@@ -20,6 +20,6 @@
     <%= form.submit "Sign Up!" %>
   </div>
   <div>
-    <p>Didn't mean to create an artist account? (<%= link_to "Go Back", :create_profile %>)</p>
+    <p>Not an artist? (<%= link_to "Go Back", :create_profile %>)</p>
   </div>
 <% end %>

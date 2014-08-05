@@ -1,20 +1,28 @@
 <%= form_for @venue do |form| %>
   <%= render "errors", target: @venue %>
   <div>
-    <%= form.label :venuename, "Venue Name:" %>
-    <%= form.text_field :venuename %>
+    <%= form.label :name, "Venue Name:" %>
+    <%= form.text_field :name %>
+  </div>
+   <div>
+    <%= form.label :address, "Address:" %>
+    <%= form.text_field :address, placeholder: "Street Address" %>
   </div>
   <div>
-    <%= form.label :location, "Location:" %>
-    <%= form.text_field :location %>
+    <%= form.label :city, "City:" %>
+    <%= form.text_field :city %>
+  </div>
+  <div>
+    <%= form.label :state, "State:" %>
+    <%= form.select :state, us_states%>
   </div>
   <div>
     <%= form.label :contactname, "Contact Name:" %>
     <%= form.text_field :contactname %>
   </div>
   <div>
-    <%= form.label :phonenumber, "Venue Phone Number:" %>
-    <%= form.text_field :phonenumber, placeholder: "xxx-xxx-xxxx"  %>
+    <%= form.label :phone, "Venue Phone Number:" %>
+    <%= form.text_field :phone, placeholder: "xxx-xxx-xxxx"  %>
   </div>
   <div>
     <%= form.label :capacity, "Maximum Capacity:" %>
@@ -24,6 +32,6 @@
     <%= form.submit "Sign Up!" %>
   </div>
   <div>
-    <p>Didn't mean to create a venue account? (<%= link_to "Go Back", :create_profile %>)</p>
+    <p>Not a venue? (<%= link_to "Go Back", :create_profile %>)</p>
   </div>
 <% end %>

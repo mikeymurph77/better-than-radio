@@ -11,18 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140804204543) do
+ActiveRecord::Schema.define(version: 20140804195534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "artists", force: true do |t|
-    t.string   "artistname",   null: false
-    t.string   "genre",        null: false
-    t.string   "contactname",  null: false
-    t.string   "contactphone", null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "name",                      null: false
+    t.string   "genre",                     null: false
+    t.string   "contactname",               null: false
+    t.string   "contactphone",              null: false
+    t.string   "bio",          default: "", null: false
+    t.string   "soundcloud",   default: "", null: false
+    t.string   "twitter",      default: "", null: false
+    t.string   "facebook",     default: "", null: false
+    t.string   "youtube",      default: "", null: false
+    t.string   "myspace",      default: "", null: false
+    t.string   "beatport",     default: "", null: false
+    t.string   "tumblr",       default: "", null: false
+    t.string   "website",      default: "", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "members", force: true do |t|
@@ -46,13 +55,16 @@ ActiveRecord::Schema.define(version: 20140804204543) do
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   create_table "venues", force: true do |t|
-    t.string   "venuename",   null: false
-    t.string   "location",    null: false
-    t.string   "phonenumber", null: false
-    t.string   "contactname", null: false
-    t.integer  "capacity",    null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "name",                     null: false
+    t.string   "address",                  null: false
+    t.string   "city",                     null: false
+    t.string   "state",                    null: false
+    t.string   "phone",                    null: false
+    t.string   "contactname",              null: false
+    t.integer  "capacity",                 null: false
+    t.string   "notes",       default: "", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
 end

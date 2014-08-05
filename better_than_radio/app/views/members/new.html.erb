@@ -6,12 +6,12 @@
   </div>
   <div>
     <%= form.label :location, "Location:" %>
-    <%= form.text_field :location %>
+    <%= form.select :location, us_states%>
   </div>
   <div>
     <%= form.submit "Sign Up!" %>
   </div>
   <div>
-    <p>Didn't mean to create a standard account? (<%= link_to "Go Back", :create_profile %>)</p>
+    <p>Are you an artist or venue? (<%= link_to "Go Back", :create_profile %>)</p>
   </div>
 <% end %>
