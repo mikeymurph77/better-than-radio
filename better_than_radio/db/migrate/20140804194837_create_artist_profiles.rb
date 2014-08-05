@@ -3,8 +3,8 @@ class CreateArtistProfiles < ActiveRecord::Migration
     create_table :artists do |t|
       t.string :name, null: false
       t.string :genre, null: false
-      t.string :contactname, null: false
-      t.string :contactphone, null: false
+      t.string :contact_name, null: false
+      t.string :contact_phone, null: false
       t.string :bio, null: false, default: ""
       t.string :soundcloud, null: false, default: ""
       t.string :twitter, null: false, default: ""

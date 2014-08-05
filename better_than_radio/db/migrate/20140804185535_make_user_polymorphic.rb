@@ -1,6 +1,6 @@
 class MakeUserPolymorphic < ActiveRecord::Migration
   def change
-    add_column :users, :profile_id, :integer
-    add_column :users, :profile_type, :string
+    add_column :users, :account_id, :integer
+    add_column :users, :account_type, :string
   end
 end

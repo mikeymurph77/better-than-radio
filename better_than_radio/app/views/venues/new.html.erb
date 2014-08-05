@@ -17,8 +17,8 @@
     <%= form.select :state, us_states%>
   </div>
   <div>
-    <%= form.label :contactname, "Contact Name:" %>
-    <%= form.text_field :contactname %>
+    <%= form.label :contact_name, "Contact Name:" %>
+    <%= form.text_field :contact_name %>
   </div>
   <div>
     <%= form.label :phone, "Venue Phone Number:" %>
@@ -32,6 +32,6 @@
     <%= form.submit "Sign Up!" %>
   </div>
   <div>
-    <p>Not a venue? (<%= link_to "Go Back", :create_profile %>)</p>
+    <p>Not a venue? (<%= link_to "Go Back", :create_account %>)</p>
   </div>
 <% end %>

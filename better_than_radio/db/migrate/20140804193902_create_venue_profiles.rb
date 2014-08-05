@@ -6,7 +6,7 @@ class CreateVenueProfiles < ActiveRecord::Migration
       t.string :city, null: false
       t.string :state, null: false
       t.string :phone, null: false
-      t.string :contactname, null: false
+      t.string :contact_name, null: false
       t.integer :capacity, null: false
       t.string :notes, null: false, default: ""
 

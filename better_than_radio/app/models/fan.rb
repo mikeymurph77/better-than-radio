@@ -1,3 +1,3 @@
-class Artist < ActiveRecord::Base
+class Fan < ActiveRecord::Base
   has_many :users, as: :profiles
 end

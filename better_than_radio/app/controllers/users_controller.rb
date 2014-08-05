@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
     if @user.valid?
       sign_in(@user)
-      redirect_to :create_profile
+      redirect_to root_path
     else
       render :new
     end
