@@ -1,4 +1,6 @@
 class ArtistsController <ApplicationController
+  skip_before_action :require_account, only: [:new, :create]
+  
   def new
     @artist = Artist.new
   end
