@@ -10,7 +10,7 @@ class FansController < ApplicationController
 
     if @fan.save
       current_user.update(account: @fan)
-      redirect_to :fan_dashboard
+      redirect_to root_path
     else
       render :new
     end
