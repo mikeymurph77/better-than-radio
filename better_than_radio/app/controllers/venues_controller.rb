@@ -10,7 +10,7 @@ class VenuesController < ApplicationController
 
     if @venue.save
       current_user.update(account: @venue)
-      redirect_to root_path
+      redirect_to "#{current_user.account_type.downcase}_dashboard".to_sym
     else
       render :new
     end

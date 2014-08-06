@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     user = authenticate_session(session_params)
 
     if sign_in(user)
-      find_dashboard
+      redirect_to "#{current_user.account_type.downcase}_dashboard".to_sym
     else
       render :new
     end
@@ -24,21 +24,5 @@ class SessionsController < ApplicationController
 
   def session_params
     params.require(:session).permit(:password, :username)
-  end
-
-  def find_dashboard
-    fan_dashboard || artist_dashboard || venue_dashboard
-  end
-
-  def fan_dashboard
-    redirect_to :fan_dashboard
-  end
-
-  def artist_dashboard
-    redirect_to :artist_dashboard
-  end
-
-  def venue_dashboard
-    redirect_to :venue_dashboard
   end
 end

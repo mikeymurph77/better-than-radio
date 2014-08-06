@@ -1,8 +1,3 @@
-require "monban/constraints/signed_in"
-require Rails.root.join("lib/fan_account_constraint")
-require Rails.root.join("lib/artist_account_constraint")
-require Rails.root.join("lib/venue_account_constraint")
-
 Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :show]
@@ -12,19 +7,9 @@ Rails.application.routes.draw do
   resources :artists, only: [:new, :create]
   resources :fans, only: [:new, :create]
 
-  constraints Monban::Constraints::SignedIn.new do
-    constraints FanAccountConstraint.new do
-      root to: "fan_dashboards#show", as: :fan_dashboards
-    end
-
-    constraints ArtistAccountConstraint.new do
-      root to: "artist_dashboards#show", as: :artist_dashboards
-    end
-
-    constraints VenueAccountConstraint.new do
-      root to: "venue_dashboards#show", as: :venue_dashboards
-    end
-  end
+  resource :fan_dashboard, only: [:show]
+  resource :artist_dashboard, only: [:show]
+  resource :venue_dashboard, only: [:show]
 
   root to: "sessions#new"
 end
