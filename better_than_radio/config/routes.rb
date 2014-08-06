@@ -7,5 +7,9 @@ Rails.application.routes.draw do
   resources :artists, only: [:new, :create]
   resources :fans, only: [:new, :create]
 
-  root to: "dashboards#show"
+  resource :fan_dashboard, only: [:show]
+  resource :artist_dashboard, only: [:show]
+  resource :venue_dashboard, only: [:show]
+
+  root to: "sessions#new"
 end
