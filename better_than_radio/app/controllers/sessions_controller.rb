@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     user = authenticate_session(session_params)
 
     if sign_in(user)
-      redirect_to "#{current_user.account_type.downcase}_dashboard".to_sym
+      redirect_to current_user_dashboard_path
     else
       render :new
     end

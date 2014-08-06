@@ -10,7 +10,7 @@ class ArtistsController <ApplicationController
 
     if @artist.save
       current_user.update(account: @artist)
-      redirect_to "#{current_user.account_type.downcase}_dashboard".to_sym
+      redirect_to current_user_dashboard_path
     else
       render :new
     end
