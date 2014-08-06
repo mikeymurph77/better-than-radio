@@ -8,8 +8,9 @@ class ApplicationController < ActionController::Base
   private
 
   def custom_dashboard_path
-    "#{current_user.account_type.downcase}_dashboard".to_sym
+    polymorphic_path("#{current_user.account_type.downcase}_dashboard".to_sym)
   end
+  helper_method :custom_dashboard_path
 
   def require_account
     if ! current_user.account
