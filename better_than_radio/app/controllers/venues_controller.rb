@@ -10,7 +10,7 @@ class VenuesController < ApplicationController
 
     if @venue.save
       current_user.update(account: @venue)
-      redirect_to current_user_dashboard_path
+      redirect_to custom_dashboard_path
     else
       render :new
     end

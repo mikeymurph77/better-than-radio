@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def current_user_dashboard_path
+  def custom_dashboard_path
     "#{current_user.account_type.downcase}_dashboard".to_sym
   end
 
@@ -18,20 +18,20 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_fan_account
-    if current_user.account_type != "Fan"
-      redirect_to current_user_dashboard_path
+    unless current_user.fan?
+      redirect_to custom_dashboard_path
     end    
   end
 
   def ensure_artist_account
-    if current_user.account_type != "Artist"
-      redirect_to current_user_dashboard_path
+    unless current_user.artist?
+      redirect_to custom_dashboard_path
     end    
   end
 
   def ensure_venue_account
-    if current_user.account_type != "Venue"
-      redirect_to current_user_dashboard_path
+    unless current_user.venue?
+      redirect_to custom_dashboard_path
     end    
   end
 end

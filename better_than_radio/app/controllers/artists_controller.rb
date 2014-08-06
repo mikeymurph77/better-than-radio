@@ -10,7 +10,7 @@ class ArtistsController <ApplicationController
 
     if @artist.save
       current_user.update(account: @artist)
-      redirect_to current_user_dashboard_path
+      redirect_to custom_dashboard_path
     else
       render :new
     end
