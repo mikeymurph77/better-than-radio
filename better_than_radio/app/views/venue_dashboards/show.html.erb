@@ -1,1 +1,11 @@
 <h2>Venue Dashboard</h2>
+
+<%= link_to "Add a Concert", [:new, :concert] %>
+
+<h3>Upcoming Shows</h3>
+
+<% @concerts.each do |concert| %>
+  <p><%= link_to concert.headliner.name %> on <%= concert.date.to_formatted_s(:long_ordinal) %></p>
+<% end %>
+
+<h3>Past Shows</h3>

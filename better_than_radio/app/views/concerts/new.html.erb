@@ -1,0 +1,27 @@
+<h2>Add a new show to your venue</h2>
+
+<%= form_for @concert do |form| %>
+  <div>
+    <%= form.label :date, "Event Date:" %>
+    <%= form.date_field :date %>
+  </div>
+  <div>
+    <%= form.label :event_name, "Event Name:" %>
+    <%= form.text_field :event_name, placeholder: "optional" %>
+  </div>
+  <div>
+    <%= form.label :tickets, "Ticket URL Link:" %>
+    <%= form.text_field :tickets, placeholder: "required" %>
+  </div>
+  <div>
+    <%= form.label :headliner_id, "Headlining Act:" %>
+    <%= form.collection_select :headliner_id, @artists, :id, :name, {:include_blank => "Please select"} %>
+  </div>
+  <div>
+    <%= form.label :additional_info, "Additional Information:" %>
+    <%= form.text_area :additional_info, placeholder: "optional" %>
+  </div>
+  <div>
+    <%= form.submit "Add Concert" %>
+  </div>
+<% end %>
