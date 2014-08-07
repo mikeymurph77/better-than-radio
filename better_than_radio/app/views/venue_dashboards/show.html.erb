@@ -1,1 +1,9 @@
 <h2>Venue Dashboard</h2>
+
+<%= link_to "Add a Concert", [:new, :concert] %>
+
+<h3>Upcoming Shows</h3>
+<%= render @upcoming_concerts %>
+
+<h3>Past Shows</h3>
+<%= render @past_concerts %>

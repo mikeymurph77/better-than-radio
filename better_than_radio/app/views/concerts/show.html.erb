@@ -1,0 +1,5 @@
+<h2><%= @concert.headliner.name %></h2>
+<h4>Location: <%= @concert.venue.name %></h4>
+<h4>Address: <%= @concert.venue.address %>, <%= @concert.venue.city %> <%= @concert.venue.state %></h4>
+<h4>Date: <%= @concert.date.to_formatted_s(:long_ordinal) %></h4>
+<%= button_to "Tickets", @concert.tickets %>
