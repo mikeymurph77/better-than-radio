@@ -4,8 +4,11 @@
 
 <h3>Upcoming Shows</h3>
 
-<% @concerts.each do |concert| %>
-  <p><%= link_to concert.headliner.name %> on <%= concert.date.to_formatted_s(:long_ordinal) %></p>
+<% @upcoming_concerts.each do |concert| %>
+  <p><%= link_to concert.headliner.name, "/concerts/#{concert.id}" %> on <%= concert.date.to_formatted_s(:long_ordinal) %></p>
 <% end %>
 
 <h3>Past Shows</h3>
+<% @past_concerts.each do |concert| %>
+  <p><%= link_to concert.headliner.name, "/concerts/#{concert.id}" %> on <%= concert.date.to_formatted_s(:long_ordinal) %></p>
+<% end %>

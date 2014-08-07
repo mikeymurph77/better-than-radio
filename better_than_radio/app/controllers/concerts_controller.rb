@@ -2,7 +2,7 @@ class ConcertsController < ApplicationController
   before_action :ensure_venue_account, only: [:new, :create, :edit]
 
   def show
-    
+    @concert = Concert.find(params[:id])
   end
 
   def new
@@ -11,8 +11,8 @@ class ConcertsController < ApplicationController
   end
 
   def create
-    @venue = current_user.id
-    concert = Concert.new(concert_params.merge(venue_id: @venue))
+    @venue = current_user.account
+    concert = Concert.new(concert_params.merge(venue: @venue))
 
     if concert.save
       redirect_to custom_dashboard_path
