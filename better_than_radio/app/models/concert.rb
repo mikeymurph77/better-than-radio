@@ -11,10 +11,10 @@ class Concert < ActiveRecord::Base
   end
 
   def self.before_today
-    where("date >= ?", Time.now)
+    where("date <= ?", Date.current)
   end
 
   def self.after_today
-    where("date <= ?", Time.now)
+    where("date >= ?", Date.current)
   end
 end

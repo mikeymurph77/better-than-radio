@@ -2,25 +2,26 @@
 
 <%= form_for @concert do |form| %>
   <div>
-    <%= form.label :date, "Event Date:" %>
+    <%= form.label :date, "Event Date: *" %>
     <%= form.date_field :date %>
   </div>
   <div>
-    <%= form.label :event_name, "Event Name:" %>
-    <%= form.text_field :event_name, placeholder: "optional" %>
+    <%= form.label :event_name, "Event/Tour Name:" %>
+    <%= form.text_field :event_name %>
   </div>
   <div>
-    <%= form.label :tickets, "Ticket URL Link:" %>
-    <%= form.text_field :tickets, placeholder: "required" %>
+    <%= form.label :tickets, "Ticket URL: *" %>
+    <%= form.text_field :tickets %>
   </div>
   <div>
-    <%= form.label :headliner_id, "Headlining Act:" %>
-    <%= form.collection_select :headliner_id, @artists, :id, :name, {:include_blank => "Please select"} %>
+    <%= form.label :headliner_id, "Headlining Act: *" %>
+    <%= form.collection_select :headliner_id, @artists, :id, :name, {:include_blank => "Select One"} %>
   </div>
   <div>
     <%= form.label :additional_info, "Additional Information:" %>
-    <%= form.text_area :additional_info, placeholder: "optional" %>
+    <%= form.text_area :additional_info %>
   </div>
+  <p>* - Required fields</p>
   <div>
     <%= form.submit "Add Concert" %>
   </div>
