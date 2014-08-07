@@ -6,7 +6,7 @@ class Concert < ActiveRecord::Base
     order("date DESC")
   end
 
-  def self.next_concert_first
+  def self.next_first
     order("date ASC")
   end
 
