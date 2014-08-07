@@ -3,12 +3,7 @@
 <%= link_to "Add a Concert", [:new, :concert] %>
 
 <h3>Upcoming Shows</h3>
-
-<% @upcoming_concerts.each do |concert| %>
-  <p><%= link_to concert.headliner.name, concert %> on <%= concert.date.to_formatted_s(:long_ordinal) %></p>
-<% end %>
+<%= render @upcoming_concerts %>
 
 <h3>Past Shows</h3>
-<% @past_concerts.each do |concert| %>
-  <p><%= link_to concert.headliner.name, concert %> on <%= concert.date.to_formatted_s(:long_ordinal) %></p>
-<% end %>
+<%= render @past_concerts %>
