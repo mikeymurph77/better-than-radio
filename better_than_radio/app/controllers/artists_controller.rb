@@ -2,6 +2,8 @@ class ArtistsController <ApplicationController
   skip_before_action :require_account, only: [:new, :create]
 
   def show
+    @artist = Artist.find(params[:id])
+    @concerts = Concert.where(headliner_id: @artist)
   end
   
   def new
@@ -19,6 +21,20 @@ class ArtistsController <ApplicationController
     end
   end
 
+  def edit
+    @artist = current_user.account 
+  end
+
+  def update
+    artist = current_user.account
+    if artist.update(artist_params)
+      redirect_to custom_profile_path
+    else
+      render :edit
+    end
+  end
+
+
   private
 
   def artist_params
@@ -27,6 +43,15 @@ class ArtistsController <ApplicationController
       :genre,
       :contact_name,
       :contact_phone,
+      :bio,
+      :website,
+      :twitter,
+      :facebook,
+      :youtube,
+      :soundcloud,
+      :myspace,
+      :beatport,
+      :tumblr,
     )
   end
 end

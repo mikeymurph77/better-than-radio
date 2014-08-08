@@ -12,6 +12,11 @@ class ApplicationController < ActionController::Base
   end
   helper_method :custom_dashboard_path
 
+  def custom_profile_path
+    polymorphic_path("#{current_user.account_type.downcase}".to_sym)
+  end
+  helper_method :custom_profile_path
+
   def require_account
     if ! current_user.account
       redirect_to :create_account

@@ -1,1 +1,25 @@
-<h2>Artist Profile Page</h2>
+<h1><%= @artist.name %></h1>
+<%= @artist.soundcloud %>
+
+<% if current_user.account == @artist %>
+  <%= link_to "Edit Profile", [:edit, :artist] %>
+<% end %>
+
+<h3>Bio:</h3>
+  <%= @artist.bio %>
+
+<h3>Conncect with <%= @artist.name %></h3>
+  <%= link_to "Twitter", @artist.twitter %>
+  <%= link_to "Facebook", @artist.facebook %>
+  <%= link_to "YouTube", @artist.youtube %>
+  <%= link_to "Soundcloud", @artist.soundcloud %>
+  <%= link_to "Myspace", @artist.myspace %>
+  <%= link_to "Beatport", @artist.beatport %>
+  <%= link_to "Tumblr", @artist.tumblr %>
+
+<h3>Upcoming shows</h3>
+  <% @concerts.each do |concert| %>
+    <li>
+      <%= concert.date.to_formatted_s(:long_ordinal) %> at <%= link_to concert.venue.name, :venue %>. <%= link_to "Purchase Tickets", concert.tickets %> 
+    </li>
+  <% end %>

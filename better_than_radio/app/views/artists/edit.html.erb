@@ -1,0 +1,63 @@
+<h2>Edit Profile</h2>
+
+<%= form_for @artist do |form| %>
+  <%= render "errors", target: @artist %>
+  <h3>General</h3>
+  <div>
+    <%= form.label :name, "Name:" %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :genre, "Genre:" %>
+    <%= form.text_field :genre %>
+  </div>
+  <div>
+    <%= form.label :bio, "Bio:" %>
+    <%= form.text_area :bio %>
+  </div>
+  <h3>Social Networks</h3>
+  <div>
+    <%= form.label :website, "Website:" %>
+    <%= form.text_field :website %>
+  </div>
+  <div>
+    <%= form.label :twitter, "Twitter:" %>
+    <%= form.text_field :twitter %>
+  </div>
+  <div>
+    <%= form.label :facebook, "Facebook:" %>
+    <%= form.text_field :facebook %>
+  </div>
+  <div>
+    <%= form.label :youtube, "Youtube:" %>
+    <%= form.text_field :youtube %>
+  </div>
+  <div>
+    <%= form.label :soundclound, "Soundcloud:" %>
+    <%= form.text_field :soundcloud %>
+  </div>
+  <div>
+    <%= form.label :myspace, "Myspace:" %>
+    <%= form.text_field :myspace %>
+  </div>
+  <div>
+    <%= form.label :beatport, "Beatport:" %>
+    <%= form.text_field :beatport %>
+  </div>
+  <div>
+    <%= form.label :tumblr, "Tumblr:" %>
+    <%= form.text_field :tumblr %>
+  </div>
+  <h3>Contact Information</h3>
+  <div>
+    <%= form.label :contact_name, "Contact Name:" %>
+    <%= form.text_field :contact_name %>
+  </div>
+  <div>
+    <%= form.label :contact_phone, "Contact Phone:" %>
+    <%= form.telephone_field :contact_phone %>
+  </div>
+  <div>
+    <%= form.submit "Update" %>
+  </div>
+<% end %>

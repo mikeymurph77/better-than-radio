@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   resource :profile, only: [:edit, :update]
   resource :create_account, only: [:show]
   resources :venues, only: [:show, :new, :create]
-  resources :artists, only: [:show, :new, :create]
-  resources :fans, only: [:new, :create]
+  resources :artists, only: [:show, :new, :create, :update]
+  resource :artist, only: [:edit]
+  resources :fans, only: [:show, :new, :create]
   resources :concerts, only: [:show, :new, :create]
 
   resource :fan_dashboard, only: [:show]
