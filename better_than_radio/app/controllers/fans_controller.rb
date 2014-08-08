@@ -1,6 +1,9 @@
 class FansController < ApplicationController
   skip_before_action :require_account, only: [:new, :create]
 
+  def show    
+  end
+
   def new
     @fan = Fan.new
   end
