@@ -2,7 +2,7 @@ class Concert < ActiveRecord::Base
   belongs_to :headliner, class_name: "Artist"
   belongs_to :venue
 
-  def self.most_recent_concert_first
+  def self.most_recent_first
     order("date DESC")
   end
 

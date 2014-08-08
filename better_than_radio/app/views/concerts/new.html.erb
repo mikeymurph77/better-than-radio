@@ -15,7 +15,7 @@
   </div>
   <div>
     <%= form.label :headliner_id, "Headlining Act: *" %>
-    <%= form.collection_select :headliner_id, @artists, :id, :name, {:include_blank => "Select One"} %>
+    <%= form.collection_select :headliner_id, @artists, :id, :name, { include_blank: "Select One" } %>
   </div>
   <div>
     <%= form.label :additional_info, "Additional Information:" %>
