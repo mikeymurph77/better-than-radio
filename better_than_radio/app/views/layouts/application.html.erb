@@ -12,21 +12,23 @@
   <%= image_tag("logo.png") %>
 <% end %>
 
-<% if signed_in? %>
-  <% if current_user.account.present? %>
-    <%= link_to image_tag("logo.png"), custom_dashboard_path %>
-    <p>You are signed in as <%= current_user.username %> (<%= link_to "Sign out", session_path, method: :delete %>)</p>
-  <% else %>
-    <%= image_tag("logo.png") %>
+<div class="outer-container">
+  <% if signed_in? %>
+    <% if current_user.account.present? %>
+      <%= link_to image_tag("logo.png"), custom_dashboard_path %>
+      <p>You are signed in as <%= current_user.username %> (<%= link_to "Sign out", session_path, method: :delete %>)</p>
+    <% else %>
+      <%= image_tag("logo.png") %>
+    <% end %>
+
+    <% if current_user.account.present? %>
+        <p><%= link_to "Dashboard", custom_dashboard_path %>
+        <%= link_to "Profile", current_user.account %></p>
+    <% end %>
   <% end %>
 
-  <% if current_user.account.present? %>
-      <%= link_to "Dashboard", custom_dashboard_path %>
-      <%= link_to "Profile", current_user.account %>
-  <% end %>
-<% end %>
-
-<%= yield %>
+  <%= yield %>
+</div>
 
 </body>
 </html>

@@ -1,0 +1,22 @@
+.outer-container {
+  @include outer-container;
+  
+  padding: 50px;
+
+}
+
+.left-container {
+  @include span-columns(4);
+ 
+  padding: 10px;
+  border: 2px solid grey;
+  border-radius: 4px;
+}
+
+.right-container {
+  @include span-columns(8);
+
+  padding: 10px;
+  border: 2px solid grey;
+  border-radius: 4px;
+}

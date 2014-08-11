@@ -4,6 +4,7 @@ class ConcertsController < ApplicationController
 
   def show
     @concert = Concert.find(params[:id])
+    @past_concert = Concert.where(params[:id]).already_happened
   end
 
   def new

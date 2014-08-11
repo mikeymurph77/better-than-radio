@@ -29,6 +29,13 @@ GEM
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
+    bitters (0.10.0)
+      bourbon (>= 3.2)
+      sass (>= 3.2)
+      thor
+    bourbon (3.2.3)
+      sass (~> 3.2)
+      thor
     builder (3.2.2)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -60,6 +67,9 @@ GEM
     monban-generators (0.0.2)
       monban (~> 0.0.12)
     multi_json (1.10.1)
+    neat (1.5.1)
+      bourbon (>= 3.1)
+      sass (~> 3.2.19)
     pg (0.17.1)
     polyglot (0.3.5)
     rack (1.5.2)
@@ -121,10 +131,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bitters
+  bourbon
   coffee-rails (~> 4.0.0)
   jbuilder (~> 2.0)
   jquery-rails
   monban-generators
+  neat
   pg
   rails (= 4.1.1)
   sass-rails (~> 4.0.3)
