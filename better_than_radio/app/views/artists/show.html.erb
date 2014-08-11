@@ -7,21 +7,21 @@
   <% end %>
 
   <h3>Bio:</h3>
-    <%= @artist.bio %>
+  <%= @artist.bio %>
 
-  <h3>Conncect with <%= @artist.name %></h3>
-    <%= link_to "Twitter", @artist.twitter %>
-    <%= link_to "Facebook", @artist.facebook %>
-    <%= link_to "YouTube", @artist.youtube %>
-    <%= link_to "Soundcloud", @artist.soundcloud %>
-    <%= link_to "Myspace", @artist.myspace %>
-    <%= link_to "Beatport", @artist.beatport %>
-    <%= link_to "Tumblr", @artist.tumblr %>
+  <h3>Connect with <%= @artist.name %></h3>
+  <%= link_to "Twitter", @artist.twitter %>
+  <%= link_to "Facebook", @artist.facebook %>
+  <%= link_to "YouTube", @artist.youtube %>
+  <%= link_to "Soundcloud", @artist.soundcloud %>
+  <%= link_to "Myspace", @artist.myspace %>
+  <%= link_to "Beatport", @artist.beatport %>
+  <%= link_to "Tumblr", @artist.tumblr %>
 </div>
 
 <div class="right-container">
   <h2>Upcoming shows</h2>
-    <% @concerts.each do |concert| %>
+  <% @concerts.each do |concert| %>
       <li>
         <%= concert.date.to_formatted_s(:long_ordinal) %> 
         at <%= link_to concert.venue.name, :venue %>. 
