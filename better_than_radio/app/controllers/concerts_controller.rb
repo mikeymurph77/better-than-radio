@@ -1,5 +1,6 @@
 class ConcertsController < ApplicationController
   before_action :ensure_venue_account, only: [:new, :create, :edit]
+  before_action :ensure_venue_owner, only: [:edit, :update]
 
   def show
     @concert = Concert.find(params[:id])

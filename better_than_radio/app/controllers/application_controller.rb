@@ -7,6 +7,13 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def ensure_venue_owner
+    @owner = current_user.account
+    unless Concert.find_by(venue_id: @owner)
+      redirect_to custom_dashboard_path
+    end
+  end
+
   def custom_dashboard_path
     polymorphic_path("#{current_user.account_type.downcase}_dashboard".to_sym)
   end
