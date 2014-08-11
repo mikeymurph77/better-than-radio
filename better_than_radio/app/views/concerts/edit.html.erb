@@ -1,4 +1,4 @@
-<h2>Add a new show to your venue</h2>
+<h2>Edit Concert</h2>
 
 <%= form_for @concert do |form| %>
   <div>
@@ -11,7 +11,7 @@
   </div>
   <div>
     <%= form.label :tickets, "Ticket URL: *" %>
-    <%= form.url_field :tickets %>
+    <%= form.text_field :tickets %>
   </div>
   <div>
     <%= form.label :headliner_id, "Headlining Act: *" %>
@@ -23,6 +23,6 @@
   </div>
   <p>* - Required fields</p>
   <div>
-    <%= form.submit "Add Concert" %>
+    <%= form.submit "Update Concert" %>
   </div>
 <% end %>

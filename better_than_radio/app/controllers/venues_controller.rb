@@ -7,6 +7,8 @@ class VenuesController < ApplicationController
 
   def show
     @venue = Venue.find(params[:id])
+    @upcoming_concerts = Concert.where(venue: @venue).after_today.next_first
+    @past_concerts = Concert.where(venue: @venue).before_today.most_recent_first
   end
 
   def create
@@ -17,6 +19,19 @@ class VenuesController < ApplicationController
       redirect_to custom_dashboard_path
     else
       render :new
+    end
+  end
+
+  def edit
+    @venue = current_user.account
+  end
+
+  def update
+    venue = current_user.account
+    if venue.update(venue_params)
+      redirect_to custom_profile_path
+    else
+      render :edit
     end
   end
 

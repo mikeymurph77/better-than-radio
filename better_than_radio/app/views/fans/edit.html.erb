@@ -1,0 +1,16 @@
+<h2>Edit Profile</h2>
+
+<%= form_for @fan do |form| %>
+  <%= render "errors", target: @fan %>
+  <div>
+    <%= form.label :name, "First Name:" %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :location, "Location:" %>
+    <%= form.select :location, us_states%>
+  </div>
+  <div>
+    <%= form.submit "Update" %>
+  </div>
+<% end %>

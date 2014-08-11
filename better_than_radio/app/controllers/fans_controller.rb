@@ -9,7 +9,7 @@ class FansController < ApplicationController
   end
 
   def create
-    @fan = Fan.new(member_params)
+    @fan = Fan.new(fan_params)
 
     if @fan.save
       current_user.update(account: @fan)
@@ -19,9 +19,22 @@ class FansController < ApplicationController
     end
   end
 
+  def edit
+    @fan = current_user.account
+  end
+
+  def update
+    fan = current_user.account
+    if fan.update(fan_params)
+      redirect_to custom_profile_path
+    else
+      render :edit
+    end
+  end
+
   private
 
-  def member_params
+  def fan_params
     params.require(:fan).permit(
       :name,
       :location,

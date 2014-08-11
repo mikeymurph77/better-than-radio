@@ -1,5 +1,10 @@
-<h2><%= @concert.headliner.name %></h2>
-<h4>Location: <%= @concert.venue.name %></h4>
-<h4>Address: <%= @concert.venue.address %>, <%= @concert.venue.city %> <%= @concert.venue.state %></h4>
-<h4>Date: <%= @concert.date.to_formatted_s(:long_ordinal) %></h4>
+<h1><%= link_to @concert.headliner.name, @concert.headliner %></h1>
+<% if current_user.venue? %>
+  <%= link_to "Edit Concert", [:edit, :concert] %>
+  <%= link_to "Delete Concert", :concert, method: :delete %>
+<% end %>
+<p><b>Location:</b> <%= link_to @concert.venue.name, @concert.venue %></p>
+<p><b>Address:</b> <%= @concert.venue.address %> <%= @concert.venue.city %>, <%= @concert.venue.state %></p>
+<p><b>Date:</b> <%= @concert.date.to_formatted_s(:long_ordinal) %></p>
+<p><b>Notes:</b> <%= @concert.additional_info %></p>
 <%= button_to "Tickets", @concert.tickets %>

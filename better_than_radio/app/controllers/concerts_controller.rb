@@ -21,6 +21,27 @@ class ConcertsController < ApplicationController
     end
   end
 
+  def edit
+    @concert = Concert.find(params[:id])
+    @artists = Artist.all
+  end
+
+  def update
+    concert = Concert.find(params[:id])
+    if concert.update(concert_params)
+      redirect_to concert
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    concert = Concert.find(params[:id])
+    concert.destroy
+
+    redirect_to custom_dashboard_path
+  end
+
   private
 
   def concert_params
