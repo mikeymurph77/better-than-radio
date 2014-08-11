@@ -16,11 +16,4 @@ class User < ActiveRecord::Base
   def venue?
     account_type == "Venue"
   end
-
-  def show_user_nav
-    if account.present?
-        link_to "Dashboard", custom_dashboard_path
-        link_to "Profile", current_user.account
-    end
-  end
 end
