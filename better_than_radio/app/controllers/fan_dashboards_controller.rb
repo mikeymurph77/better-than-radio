@@ -3,6 +3,6 @@ class FanDashboardsController < ApplicationController
   
   def show
     @venues = Venue.where(state: current_user.account.location)
-    @concerts = Concert.where(venue_id: @venues).next_first.after_today
+    @concerts = Concert.where(venue_id: @venues).upcoming
   end
 end

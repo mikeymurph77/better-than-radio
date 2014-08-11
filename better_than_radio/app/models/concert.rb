@@ -2,6 +2,14 @@ class Concert < ActiveRecord::Base
   belongs_to :headliner, class_name: "Artist"
   belongs_to :venue
 
+  def self.upcoming
+    next_first.after_today
+  end
+
+  def self.already_happened
+    most_recent_first.before_today
+  end
+
   def self.most_recent_first
     order("date DESC")
   end
