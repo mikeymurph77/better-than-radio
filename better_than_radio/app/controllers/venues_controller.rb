@@ -28,6 +28,7 @@ class VenuesController < ApplicationController
 
   def update
     venue = current_user.account
+    
     if venue.update(venue_params)
       redirect_to custom_profile_path
     else

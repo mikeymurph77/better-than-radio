@@ -28,6 +28,7 @@ class ConcertsController < ApplicationController
 
   def update
     concert = Concert.find(params[:id])
+    
     if concert.update(concert_params)
       redirect_to concert
     else

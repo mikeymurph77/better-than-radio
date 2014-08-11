@@ -2,6 +2,9 @@
 
 <% @concerts.each do |concert| %>
   <li>
-    <%= link_to concert.headliner.name, concert.headliner %> at <%= link_to concert.venue.name, concert.venue %> on <%= concert.date.to_formatted_s(:long_ordinal) %> <%= link_to "View Concert Details", concert %>
+    <%= link_to concert.headliner.name, concert.headliner %> at 
+      <%= link_to concert.venue.name, concert.venue %> on 
+      <%= concert.date.to_formatted_s(:long_ordinal) %> 
+      <%= link_to "View Concert Details", concert %>
   </li>
 <% end %>

@@ -25,6 +25,7 @@ class FansController < ApplicationController
 
   def update
     fan = current_user.account
+    
     if fan.update(fan_params)
       redirect_to custom_profile_path
     else

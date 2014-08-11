@@ -6,5 +6,5 @@
 <p><b>Location:</b> <%= link_to @concert.venue.name, @concert.venue %></p>
 <p><b>Address:</b> <%= @concert.venue.address %> <%= @concert.venue.city %>, <%= @concert.venue.state %></p>
 <p><b>Date:</b> <%= @concert.date.to_formatted_s(:long_ordinal) %></p>
-<p><b>Notes:</b> <%= @concert.additional_info %></p>
+<b>Notes:</b> <%= @concert.additional_info %></p>
 <%= button_to "Tickets", @concert.tickets %>
