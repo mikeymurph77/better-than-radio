@@ -20,7 +20,7 @@
 </div>
 
 <div class="right-container">
-  <h3>Upcoming shows</h3>
+  <h2>Upcoming shows</h2>
     <% @concerts.each do |concert| %>
       <li>
         <%= concert.date.to_formatted_s(:long_ordinal) %> at <%= link_to concert.venue.name, :venue %>. <%= link_to "See more", concert %> or <%= link_to "Purchase Tickets", concert.tickets %> 
