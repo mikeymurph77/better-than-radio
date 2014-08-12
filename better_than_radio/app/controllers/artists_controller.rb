@@ -22,11 +22,11 @@ class ArtistsController <ApplicationController
   end
 
   def edit
-    @artist = current_user.account 
+    @artist = current_account
   end
 
   def update
-    artist = current_user.account
+    artist = current_account
     if artist.update(artist_params)
       redirect_to custom_profile_path
     else

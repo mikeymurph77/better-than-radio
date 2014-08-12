@@ -4,7 +4,8 @@ class ConcertsController < ApplicationController
 
   def show
     @concert = Concert.find(params[:id])
-    @past_concert = Concert.where(params[:id]).already_happened
+    @comment = Comment.new
+    @comments = @concert.comments
   end
 
   def new
@@ -13,7 +14,7 @@ class ConcertsController < ApplicationController
   end
 
   def create
-    @venue = current_user.account
+    @venue = current_account
     concert = Concert.new(concert_params.merge(venue: @venue))
 
     if concert.save

@@ -23,11 +23,11 @@ class VenuesController < ApplicationController
   end
 
   def edit
-    @venue = current_user.account
+    @venue = current_account
   end
 
   def update
-    venue = current_user.account
+    venue = current_account
     
     if venue.update(venue_params)
       redirect_to custom_profile_path

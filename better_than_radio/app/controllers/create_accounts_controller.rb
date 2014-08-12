@@ -8,7 +8,7 @@ class CreateAccountsController < ApplicationController
   private
 
   def ensure_no_account
-    if current_user.account.present?
+    if current_account.present?
       redirect_to current_user_dashboard_path
     end
   end

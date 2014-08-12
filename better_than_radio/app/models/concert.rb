@@ -2,6 +2,8 @@ class Concert < ActiveRecord::Base
   belongs_to :headliner, class_name: "Artist"
   belongs_to :venue
 
+  has_many :comments, as: :commentable
+
   def self.upcoming
     next_first.after_today
   end
@@ -24,5 +26,9 @@ class Concert < ActiveRecord::Base
 
   def self.after_today
     where("date >= ?", Date.current)
+  end
+
+  def past?
+    date < Date.current
   end
 end

@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   resources :venues, only: [:show, :new, :create, :edit, :update]
   resources :artists, only: [:show, :new, :create, :edit, :update]
   resources :fans, only: [:show, :new, :create, :edit, :update]
-  resources :concerts, only: [:show, :new, :create, :edit, :update, :destroy]
+  
+  resources :concerts, only: [:show, :new, :create, :edit, :update, :destroy] do
+    resources :comments, only: [:create]
+  end
 
   resource :fan_dashboard, only: [:show]
   resource :artist_dashboard, only: [:show]

@@ -12,3 +12,7 @@ gem "monban-generators"
 gem "bourbon"
 gem "neat"
 gem "bitters"
+
+group :development do
+  gem "pry-rails"
+end
