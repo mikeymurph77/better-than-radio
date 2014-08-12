@@ -22,7 +22,7 @@ class ArtistsController <ApplicationController
   end
 
   def edit
-    @artist = current_account 
+    @artist = current_account
   end
 
   def update
