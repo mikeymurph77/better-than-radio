@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140812191218) do
+ActiveRecord::Schema.define(version: 20140812202222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,17 +47,6 @@ ActiveRecord::Schema.define(version: 20140812191218) do
   add_index "comments", ["commentable_type"], name: "index_comments_on_commentable_type", using: :btree
   add_index "comments", ["fan_id"], name: "index_comments_on_fan_id", using: :btree
 
-  create_table "concert_photos", force: true do |t|
-    t.integer  "concert_id",  null: false
-    t.integer  "fan_id",      null: false
-    t.string   "description", null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "concert_photos", ["concert_id"], name: "index_concert_photos_on_concert_id", using: :btree
-  add_index "concert_photos", ["fan_id"], name: "index_concert_photos_on_fan_id", using: :btree
-
   create_table "concerts", force: true do |t|
     t.date     "date",                         null: false
     t.string   "event_name",      default: "", null: false
@@ -75,6 +64,17 @@ ActiveRecord::Schema.define(version: 20140812191218) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "photos", force: true do |t|
+    t.integer  "fan_id",      null: false
+    t.integer  "concert_id",  null: false
+    t.string   "description", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "photos", ["concert_id"], name: "index_photos_on_concert_id", using: :btree
+  add_index "photos", ["fan_id"], name: "index_photos_on_fan_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",           null: false

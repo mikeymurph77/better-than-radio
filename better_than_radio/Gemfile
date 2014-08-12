@@ -12,6 +12,7 @@ gem "monban-generators"
 gem "bourbon"
 gem "neat"
 gem "bitters"
+gem "carrierwave"
 
 group :development do
   gem "pry-rails"
