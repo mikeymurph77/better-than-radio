@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   def create
     commentable = find_commentable
-    comment = current_account.comments.create(comment_params.merge(commentable: commentable))
+    current_account.comments.create(comment_params.merge(commentable: commentable))
     concert = Concert.find_by(id: params[:concert_id])
     redirect_to concert
   end

@@ -9,18 +9,41 @@
 <div class="right-container">
   <h1><%= link_to @concert.headliner.name, @concert.headliner %></h1>
 
-  <% if @concert.past? %>
-    <p><em>This concert already happened.</em></p>
-    <p><em>Did you attend? Leave a comment or upload photos of your experience!</em></p>
-  <% else %>
-    <p>Going?</p>
-  <% end %>
-
   <% if current_user.venue? %>
     <%= link_to "Edit Concert", [:edit, :concert] %>
     <%= link_to "Delete Concert", :concert, method: :delete %>
   <% end %>
 
+  <% if @concert.past? %>
+    <p><em>This concert already happened.</em></p>
+    <p><em>Did you attend? Leave a comment or upload photos of your experience!</em></p>
+
+    <% if current_user.fan? %>
+      <h3>Upload Your Photos!</h3>
+      <%= form_for [@concert, @new_photo], html: { multipart: true } do |form| %>
+        <div>
+          <%= form.label :description %>
+          <%= form.text_field :description %>
+        </div>
+        <div>
+          <%= form.file_field :image %>
+        </div>
+        <div>
+          <%= form.submit "Upload" %>
+        </div>
+      <% end %>
+    <% end %>
+    
+    <h3>Fan Photos</h3>
+    <% @photos.each do |photo| %>
+      <%= link_to image_tag(photo.image_url(:thumb).to_s), photo %>
+    <% end %>
+
+  <% else %>
+    <p>Going?</p>
+  <% end %>
+
+  <h3>Leave a comment!</h3>
   <% if current_user.fan? %>
     <%= form_for [@concert, @comment], id: "concert_comment" do |form| %>
       <%= form.text_field :body, placeholder: "Add Comment" %>

@@ -12,6 +12,8 @@ gem "monban-generators"
 gem "bourbon"
 gem "neat"
 gem "bitters"
+gem "carrierwave"
+gem "rmagick", require: "RMagick"
 
 group :development do
   gem "pry-rails"

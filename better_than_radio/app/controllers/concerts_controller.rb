@@ -6,6 +6,8 @@ class ConcertsController < ApplicationController
     @concert = Concert.find(params[:id])
     @comment = Comment.new
     @comments = @concert.comments
+    @new_photo = Photo.new
+    @photos = @concert.photos
   end
 
   def new
