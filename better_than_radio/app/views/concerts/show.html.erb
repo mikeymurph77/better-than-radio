@@ -9,13 +9,25 @@
 <div class="right-container">
   <h1><%= link_to @concert.headliner.name, @concert.headliner %></h1>
 
-  <% if @past_concert %>
+  <% if @concert.past? %>
     <p><em>This concert already happened.</em></p>
     <p><em>Did you attend? Leave a comment or upload photos of your experience!</em></p>
+  <% else %>
+    <p>Going?</p>
   <% end %>
 
   <% if current_user.venue? %>
     <%= link_to "Edit Concert", [:edit, :concert] %>
     <%= link_to "Delete Concert", :concert, method: :delete %>
   <% end %>
+
+  <% if current_user.fan? %>
+    <%= form_for [@concert, @comment], id: "concert_comment" do |form| %>
+      <%= form.text_field :body, placeholder: "Add Comment" %>
+      <%= form.submit "Comment" %>
+    <% end %>
+  <% end %>
+
+  <h3>Comments</h3>
+  <%= render @comments %>
 </div>
