@@ -47,4 +47,8 @@ class ApplicationController < ActionController::Base
       redirect_to custom_dashboard_path
     end    
   end
+
+  def current_account
+    current_user.account
+  end
 end

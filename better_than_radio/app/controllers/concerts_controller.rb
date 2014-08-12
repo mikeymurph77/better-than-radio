@@ -14,7 +14,7 @@ class ConcertsController < ApplicationController
   end
 
   def create
-    @venue = current_user.account
+    @venue = current_account
     concert = Concert.new(concert_params.merge(venue: @venue))
 
     if concert.save

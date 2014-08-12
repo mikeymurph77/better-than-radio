@@ -20,11 +20,11 @@ class FansController < ApplicationController
   end
 
   def edit
-    @fan = current_user.account
+    @fan = current_account
   end
 
   def update
-    fan = current_user.account
+    fan = current_account
     
     if fan.update(fan_params)
       redirect_to custom_profile_path
