@@ -1,5 +1,9 @@
-<%= image_tag @photo.image_url.to_s %>
+<%= image_tag @photo.image_url(:show).to_s %>
+<%= link_to @photo.concert.headliner.name, @photo.concert.headliner %>
+<%= @photo.description %>
+Photo by: <%= @photo.fan.name %>
 
 <% if @photo.fan == current_account %>
   <%= link_to "Delete", :photo, method: :delete %>
+  <%= link_to "Edit Description", [:edit, :photo] %>
 <% end %>

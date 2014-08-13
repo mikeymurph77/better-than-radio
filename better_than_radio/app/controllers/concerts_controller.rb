@@ -7,7 +7,7 @@ class ConcertsController < ApplicationController
     @comment = Comment.new
     @comments = @concert.comments
     @new_photo = Photo.new
-    @photos = Photo.where(concert_id: @concert)
+    @photos = @concert.photos
   end
 
   def new

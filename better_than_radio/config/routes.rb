@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :photos, only: [:create]
   end
 
-  resources :photos, only: [:show, :destroy]
+  resources :photos, only: [:show, :destroy, :edit, :update]
 
   resource :fan_dashboard, only: [:show]
   resource :artist_dashboard, only: [:show]
