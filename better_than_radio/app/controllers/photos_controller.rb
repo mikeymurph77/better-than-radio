@@ -16,10 +16,8 @@ class PhotosController < ApplicationController
   end
 
   def destroy
-    photo = Photo.find(params[:id])
     concert = Concert.find(params[:concert_id])
-
-    photo.destroy
+    Photo.find(params[:id]).destroy
 
     redirect_to concert
   end
