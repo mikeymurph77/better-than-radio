@@ -14,7 +14,7 @@
     <p><em>Did you attend? Leave a comment or upload photos of your experience!</em></p>
 
     <h3>Upload Your Photos!</h3>
-    <%= form_for [@concert, @photo], html: { multipart: true } do |form| %>
+    <%= form_for [@concert, @new_photo], html: { multipart: true } do |form| %>
       <div>
         <%= form.label :description %>
         <%= form.text_field :description %>
@@ -28,7 +28,7 @@
     <% end %>
 
     <% @photos.each do |photo| %>
-      <%= image_tag photo.image_url(:thumb).to_s %>
+      <%= link_to image_tag(photo.image_url(:thumb).to_s), photo %>
     <% end %>
 
   <% else %>

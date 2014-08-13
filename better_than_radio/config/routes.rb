@@ -10,8 +10,10 @@ Rails.application.routes.draw do
   resources :concerts, only: [:show, :new, :create, :edit, :update, :destroy] do
     resources :comments, only: [:create]
     resources :galleries, only: [:show]
-    resources :photos, only: [:show, :create, :destroy]
+    resources :photos, only: [:create]
   end
+
+  resources :photos, only: [:show, :destroy]
 
   resource :fan_dashboard, only: [:show]
   resource :artist_dashboard, only: [:show]

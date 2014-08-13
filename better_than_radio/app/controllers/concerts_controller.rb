@@ -6,9 +6,8 @@ class ConcertsController < ApplicationController
     @concert = Concert.find(params[:id])
     @comment = Comment.new
     @comments = @concert.comments
-    @photo = Photo.new
+    @new_photo = Photo.new
     @photos = Photo.where(concert_id: @concert)
-    @gallery = Gallery.where(concert_id: @concert)
   end
 
   def new

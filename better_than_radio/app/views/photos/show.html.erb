@@ -1,0 +1,5 @@
+<%= image_tag @photo.image_url.to_s %>
+
+<% if @photo.fan == current_account %>
+  <%= link_to "Delete", :photo, method: :delete %>
+<% end %>

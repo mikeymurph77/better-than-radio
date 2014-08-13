@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
   def show
-    @photo = Photo.new
+    @photo = Photo.find(params[:id])
   end
 
   def create
@@ -16,8 +16,9 @@ class PhotosController < ApplicationController
   end
 
   def destroy
-    concert = Concert.find(params[:concert_id])
-    Photo.find(params[:id]).destroy
+    photo = Photo.find(params[:id])
+    concert = photo.concert
+    photo.destroy
 
     redirect_to concert
   end

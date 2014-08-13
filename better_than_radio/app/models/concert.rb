@@ -3,6 +3,7 @@ class Concert < ActiveRecord::Base
   belongs_to :venue
 
   has_many :comments, as: :commentable
+  has_many :photos
 
   def self.upcoming
     next_first.after_today
