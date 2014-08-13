@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   
   resources :concerts, only: [:show, :new, :create, :edit, :update, :destroy] do
     resources :comments, only: [:create]
+    resources :galleries, only: [:show]
+    resources :photos, only: [:show, :create, :destroy]
   end
 
   resource :fan_dashboard, only: [:show]

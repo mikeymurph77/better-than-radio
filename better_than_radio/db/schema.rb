@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20140812202222) do
     t.integer  "fan_id",      null: false
     t.integer  "concert_id",  null: false
     t.string   "description", null: false
+    t.string   "image",       null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
