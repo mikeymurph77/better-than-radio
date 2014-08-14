@@ -8,7 +8,7 @@ class ConcertsController < ApplicationController
     @comments = @concert.comments
     @new_photo = Photo.new
     @photos = @concert.photos
-    @headliner = Artist.find_by(id: @concert.headliner)
+    @headliner = Artist.find_by(id: @concert.headliner_id)
   end
 
   def new

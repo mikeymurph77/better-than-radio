@@ -2,7 +2,7 @@ class FansController < ApplicationController
   skip_before_action :require_account, only: [:new, :create]
 
   def show
-    @fan = Fan.find(params[:id])   
+    @fan = Fan.find(params[:id])
   end
 
   def new
