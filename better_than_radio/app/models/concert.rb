@@ -5,6 +5,8 @@ class Concert < ActiveRecord::Base
   has_many :comments, as: :commentable
   has_many :photos, dependent: :destroy
 
+  letsrate_rateable "overall", "selection", "crowd"
+
   def self.upcoming
     next_first.after_today
   end

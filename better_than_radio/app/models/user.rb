@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
   validates :password_digest, presence: true
 
+  letsrate_rater
+
   def fan?
     account_type == "Fan"
   end
