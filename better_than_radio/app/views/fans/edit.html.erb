@@ -3,6 +3,10 @@
 <%= form_for @fan do |form| %>
   <%= render "errors", target: @fan %>
   <div>
+    <%= form.label :profile_picture, "Upload your profile picture" %>
+    <%= form.file_field :profile_picture %>
+  </div>
+  <div>
     <%= form.label :name, "First Name:" %>
     <%= form.text_field :name %>
   </div>

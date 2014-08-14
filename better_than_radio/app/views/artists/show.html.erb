@@ -1,6 +1,8 @@
 <div class="left-container">
   <h1><%= @artist.name %></h1>
-  <%= @artist.soundcloud %>
+  <% if @artist.profile_picture.present? %>
+    <%= image_tag(@artist.profile_picture_url(:thumb).to_s) %>
+  <% end %>
 
   <% if current_user.account == @artist %>
     <%= link_to "Edit Profile", [:edit, :artist] %>

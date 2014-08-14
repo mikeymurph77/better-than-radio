@@ -51,6 +51,7 @@ class ArtistsController <ApplicationController
       :myspace,
       :beatport,
       :tumblr,
+      :profile_picture,
     )
   end
 end

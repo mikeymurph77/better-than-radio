@@ -8,6 +8,7 @@
 
 <div class="right-container">
   <h1><%= link_to @concert.headliner.name, @concert.headliner %></h1>
+  <%= image_tag(@headliner.profile_picture_url(:featured).to_s) %>
 
   <% if current_user.venue? %>
     <%= link_to "Edit Concert", [:edit, :concert] %>
