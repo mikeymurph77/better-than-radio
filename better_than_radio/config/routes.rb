@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  post '/rate' => 'rater#create', :as => 'rate'
+  post "/rate" => "rater#create", as: "rate"
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :show]
   resource :profile, only: [:edit, :update]

@@ -83,8 +83,8 @@ ActiveRecord::Schema.define(version: 20140814142946) do
     t.string   "rateable_type"
     t.float    "stars",         null: false
     t.string   "dimension"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   add_index "rates", ["rateable_id", "rateable_type"], name: "index_rates_on_rateable_id_and_rateable_type", using: :btree
@@ -96,8 +96,8 @@ ActiveRecord::Schema.define(version: 20140814142946) do
     t.float    "avg",            null: false
     t.integer  "qty",            null: false
     t.string   "dimension"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   add_index "rating_caches", ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type", using: :btree
