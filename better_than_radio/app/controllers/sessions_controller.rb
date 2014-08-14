@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
     if sign_in(user)
       redirect_to custom_dashboard_path
     else
+      flash[:error] = "Username and Password do not match...try again, or sign up"
       render :new
     end
   end

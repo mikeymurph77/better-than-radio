@@ -10,6 +10,7 @@
 
 <% if ! signed_in? %>
   <%= image_tag("logo.png") %>
+  <%= render "flash_msg" %>
 <% end %>
 
 <div class="outer-container">

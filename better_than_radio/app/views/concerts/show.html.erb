@@ -18,6 +18,10 @@
     <p><em>This concert already happened.</em></p>
     <p><em>Did you attend? Leave a comment or upload photos of your experience!</em></p>
 
+    Overall Experience : <%= rating_for @concert, "overall" %>
+    Song Selection : <%= rating_for @concert, "selection" %>
+    Crowd Presence : <%= rating_for @concert, "crowd" %>
+
     <% if current_user.fan? %>
       <h3>Upload Your Photos!</h3>
       <%= form_for [@concert, @new_photo], html: { multipart: true } do |form| %>
