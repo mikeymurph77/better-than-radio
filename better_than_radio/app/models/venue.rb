@@ -7,4 +7,6 @@ class Venue < ActiveRecord::Base
   validates :phone, presence: true
 
   has_many :concerts
+
+  mount_uploader :profile_picture, ImageUploader
 end

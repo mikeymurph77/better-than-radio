@@ -1,7 +1,8 @@
 class FansController < ApplicationController
   skip_before_action :require_account, only: [:new, :create]
 
-  def show    
+  def show
+    @fan = Fan.find(params[:id])
   end
 
   def new
@@ -39,6 +40,7 @@ class FansController < ApplicationController
     params.require(:fan).permit(
       :name,
       :location,
+      :profile_picture,
     )
   end
 end

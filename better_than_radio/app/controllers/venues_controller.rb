@@ -47,6 +47,7 @@ class VenuesController < ApplicationController
       :contact_name,
       :phone,
       :capacity,
+      :profile_picture,
     )
   end
 end

@@ -1,3 +1,7 @@
 <h2>Fan Profile Page</h2>
 
+<% if @fan.profile_picture.present? %>
+  <%= image_tag(@fan.profile_picture_url(:thumb).to_s) %>
+<% end %>
+
 <%= link_to "Edit Profile", [:edit, :fan] %>
