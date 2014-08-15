@@ -8,6 +8,7 @@
 <% end %>
 
 <h3>Address: <%= @venue.address %> <%= @venue.city %>, <%= @venue.state %></h3>
+<%= link_to google_map_tag(@venue.static_map_location), google_map_link(@venue.static_map_location), target: "_blank" %>
 
 <h3>Upcoming Shows</h3>
 <%= render @upcoming_concerts %>

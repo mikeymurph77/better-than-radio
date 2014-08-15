@@ -1,7 +1,8 @@
 <div class="left-container">
+  <p><b>Date:</b> <%= @concert.date.to_formatted_s(:long_ordinal) %></p>
   <p><b>Location:</b> <%= link_to @concert.venue.name, @concert.venue %></p>
   <p><b>Address:</b> <%= @concert.venue.address %> <%= @concert.venue.city %>, <%= @concert.venue.state %></p>
-  <p><b>Date:</b> <%= @concert.date.to_formatted_s(:long_ordinal) %></p>
+  <%= link_to google_map_tag(@concert.venue.static_map_location), google_map_link(@concert.venue.static_map_location), target: "_blank" %>
   <b>Notes:</b> <%= @concert.additional_info %></p>
   <%= button_to "Tickets", @concert.tickets %>
 </div>
@@ -22,6 +23,11 @@
     Overall Experience : <%= rating_for @concert, "overall" %>
     Song Selection : <%= rating_for @concert, "selection" %>
     Crowd Presence : <%= rating_for @concert, "crowd" %>
+    
+    <h3>Fan Photos</h3>
+    <% @photos.each do |photo| %>
+      <%= link_to image_tag(photo.image_url(:thumb).to_s), photo %>
+    <% end %>
 
     <% if current_user.fan? %>
       <h3>Upload Your Photos!</h3>
@@ -37,11 +43,6 @@
           <%= form.submit "Upload" %>
         </div>
       <% end %>
-    <% end %>
-    
-    <h3>Fan Photos</h3>
-    <% @photos.each do |photo| %>
-      <%= link_to image_tag(photo.image_url(:thumb).to_s), photo %>
     <% end %>
 
   <% else %>
