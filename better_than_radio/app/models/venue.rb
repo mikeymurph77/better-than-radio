@@ -14,6 +14,10 @@ class Venue < ActiveRecord::Base
   after_validation :geocode, if: :location_changed?
 
   def location
+    "#{address} #{city}, #{state}"
+  end
+
+  def static_map_location
     "#{address},+#{city},+#{state}"
   end
 
