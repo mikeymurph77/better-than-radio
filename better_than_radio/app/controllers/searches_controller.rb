@@ -1,7 +1,7 @@
 class SearchesController < ApplicationController
   def show
-    @artists = Artist.text_search(params[:query])
-    @venues = Venue.text_search(params[:query])
     @query = params[:query]
+    @artists = Artist.text_search(@query)
+    @venues = Venue.text_search(@query)
   end
 end
