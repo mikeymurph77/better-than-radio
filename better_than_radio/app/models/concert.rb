@@ -7,6 +7,10 @@ class Concert < ActiveRecord::Base
 
   letsrate_rateable "overall", "selection", "crowd"
 
+  def self.next_concert
+    upcoming.first
+  end
+
   def self.upcoming
     next_first.after_today
   end

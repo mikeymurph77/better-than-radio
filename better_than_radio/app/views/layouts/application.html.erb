@@ -25,6 +25,11 @@
     <% if current_user.account.present? %>
         <p><%= link_to "Dashboard", custom_dashboard_path %>
         <%= link_to "Profile", current_user.account %></p>
+
+        <%= form_tag search_path, method: :get do %>
+          <%= text_field_tag :query, params[:query], placeholder: "Search for an Artist or Venue..." %>
+          <%= submit_tag "Search" %>
+        <% end %>
     <% end %>
   <% end %>
 
