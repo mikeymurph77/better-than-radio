@@ -10,6 +10,7 @@ class Venue < ActiveRecord::Base
 
   mount_uploader :profile_picture, ImageUploader
 
+<<<<<<< HEAD
   geocoded_by :location
   after_validation :geocode, if: :location_changed?
 
@@ -25,5 +26,12 @@ class Venue < ActiveRecord::Base
 
   def location_changed?
     address_changed? || city_changed? || state_changed?
+
+  def self.text_search(query)
+    if query.present?
+      where("name ilike :q", q: "%#{query}%")
+    else
+      scoped
+    end
   end
 end
