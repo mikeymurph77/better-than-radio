@@ -1,0 +1,6 @@
+<% @venues.each do|venue| %>
+    <li>
+      <%= image_tag(venue.profile_picture_url(:snippet)) %>
+      <%= link_to venue.name, venue %>
+    </li>
+<% end %>

@@ -1,0 +1,21 @@
+<h2>You searched for <%= @query %>. Here are your results!</h2>
+<div>
+  Artists
+  <div>
+    <% if @artists.present? %>
+      <%= render "artist_search_results" %>
+    <% else %>
+      Sorry, there are no Artists by the name <%= @query %>
+    <% end %>
+  </div>
+</div>
+<div>
+  Venues:
+  <div>
+    <% if @venues.present? %>
+      <%= render "venue_search_results" %>
+    <% else %>
+      Sorry, there are no venues by the name <%= @query %>
+    <% end %>
+  </div>
+</div>

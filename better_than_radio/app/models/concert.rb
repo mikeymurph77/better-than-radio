@@ -4,8 +4,14 @@ class Concert < ActiveRecord::Base
 
   has_many :comments, as: :commentable
   has_many :photos, dependent: :destroy
+  has_many :rsvps
+  has_many :attendings, through: :rsvps, source: :fan
 
   letsrate_rateable "overall", "selection", "crowd"
+
+  def self.next_concert
+    upcoming.first
+  end
 
   def self.upcoming
     next_first.after_today
