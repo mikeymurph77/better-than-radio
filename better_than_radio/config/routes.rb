@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   post "/rate" => "rater#create", as: "rate"
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :show]
+  resource :search, only: [:show]
   resource :profile, only: [:edit, :update]
   resource :create_account, only: [:show]
   resources :venues, only: [:show, :new, :create, :edit, :update]
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
     resources :galleries, only: [:show]
     resources :photos, only: [:create]
+    resource :rsvp, only: [:create, :destroy]
   end
 
   resources :photos, only: [:show, :destroy, :edit, :update]

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140814211902) do
+ActiveRecord::Schema.define(version: 20140819141212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,6 +103,17 @@ ActiveRecord::Schema.define(version: 20140814211902) do
   end
 
   add_index "rating_caches", ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type", using: :btree
+
+  create_table "rsvps", force: true do |t|
+    t.integer  "fan_id",     null: false
+    t.integer  "concert_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "rsvps", ["concert_id"], name: "index_rsvps_on_concert_id", using: :btree
+  add_index "rsvps", ["fan_id", "concert_id"], name: "index_rsvps_on_fan_id_and_concert_id", unique: true, using: :btree
+  add_index "rsvps", ["fan_id"], name: "index_rsvps_on_fan_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",           null: false

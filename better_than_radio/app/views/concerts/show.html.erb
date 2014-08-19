@@ -46,7 +46,8 @@
     <% end %>
 
   <% else %>
-    <p>Going?</p>
+    <p><%= pluralize @concert.rsvps.count, "fan" %> said they are going.</p>
+    <%= render "attend_button", target: @concert %>
   <% end %>
 
   <h3>Leave a comment!</h3>
