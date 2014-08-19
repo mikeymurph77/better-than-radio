@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
     resources :galleries, only: [:show]
     resources :photos, only: [:create]
+    resource :rsvp, only: [:create, :destroy]
   end
 
   resources :photos, only: [:show, :destroy, :edit, :update]

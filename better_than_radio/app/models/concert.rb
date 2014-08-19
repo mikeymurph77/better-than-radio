@@ -4,6 +4,8 @@ class Concert < ActiveRecord::Base
 
   has_many :comments, as: :commentable
   has_many :photos, dependent: :destroy
+  has_many :rsvps
+  has_many :attendings, through: :rsvps, source: :fan
 
   letsrate_rateable "overall", "selection", "crowd"
 
