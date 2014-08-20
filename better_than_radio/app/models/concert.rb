@@ -1,7 +1,7 @@
 class Concert < ActiveRecord::Base
   belongs_to :headliner, class_name: "Artist"
   belongs_to :venue
-  
+
   has_many :opening_acts
   has_many :comments, as: :commentable
   has_many :photos, dependent: :destroy
