@@ -3,6 +3,7 @@ class FansController < ApplicationController
 
   def show
     @fan = Fan.find(params[:id])
+    @concerts = Concert.all
   end
 
   def new

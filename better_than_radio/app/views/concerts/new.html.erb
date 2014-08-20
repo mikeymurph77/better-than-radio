@@ -18,6 +18,12 @@
     <%= form.collection_select :headliner_id, @artists, :id, :name, { include_blank: "Select One" } %>
   </div>
   <div>
+    <%= form.fields_for :opening_acts do |select_opening_acts| %>
+      <%= select_opening_acts.label :artist_id, "Add an Opening Act:" %>
+      <%= select_opening_acts.collection_select :artist_id, @artists, :id, :name, { include_blank: "Select One" } %>
+    <% end %>
+  </div>
+  <div>
     <%= form.label :additional_info, "Additional Information:" %>
     <%= form.text_area :additional_info %>
   </div>

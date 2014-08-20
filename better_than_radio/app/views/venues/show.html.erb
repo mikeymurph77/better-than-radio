@@ -1,6 +1,6 @@
 <h2><%= @venue.name %></h2>
 <% if @venue.profile_picture.present? %>
-  <%= image_tag(@venue.profile_picture_url(:thumb).to_s) %>
+  <div class="profile-picture"><%= image_tag(@venue.profile_picture_url(:thumb).to_s) %></div>
 <% end %>
 
 <% if current_user.account == @venue %>

@@ -1,6 +1,7 @@
 <h2>Edit Concert</h2>
 
 <%= form_for @concert do |form| %>
+  <%= render "errors", target: @concert %>
   <div>
     <%= form.label :date, "Event Date: *" %>
     <%= form.date_field :date %>
@@ -11,11 +12,17 @@
   </div>
   <div>
     <%= form.label :tickets, "Ticket URL: *" %>
-    <%= form.text_field :tickets %>
+    <%= form.url_field :tickets %>
   </div>
   <div>
     <%= form.label :headliner_id, "Headlining Act: *" %>
     <%= form.collection_select :headliner_id, @artists, :id, :name, { include_blank: "Select One" } %>
+  </div>
+  <div>
+    <%= form.fields_for :opening_acts do |select_opening_acts| %>
+      <%= select_opening_acts.label :artist_id, "Add an Opening Act:" %>
+      <%= select_opening_acts.collection_select :artist_id, @artists, :id, :name, { include_blank: "Select One" } %>
+    <% end %>
   </div>
   <div>
     <%= form.label :additional_info, "Additional Information:" %>

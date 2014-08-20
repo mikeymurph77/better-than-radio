@@ -1,5 +1,8 @@
 class Artist < ActiveRecord::Base
   has_many :concerts, foreign_key: :headliner_id
+  has_many :opening_acts
+
+  validates :opening_acts, presence: true
 
   mount_uploader :profile_picture, ImageUploader
 
