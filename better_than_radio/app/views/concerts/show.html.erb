@@ -7,9 +7,17 @@
   <%= button_to "Tickets", @concert.tickets %>
 </div>
 
+
 <div class="right-container">
   <h1><%= link_to @concert.headliner.name, @concert.headliner %></h1>
   <%= image_tag(@headliner.profile_picture_url(:featured).to_s) %>
+
+  <% @concert.opening_acts.each do |opening_act| %>
+    <div>
+      <%= image_tag(opening_act.artist.profile_picture_url(:snippet).to_s) %>
+      <h2><%= link_to opening_act.artist.name, opening_act.artist %></h2>
+    </div>
+  <% end %>
 
   <% if current_user.venue? %>
     <%= link_to "Edit Concert", [:edit, :concert] %>

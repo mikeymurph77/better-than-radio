@@ -3,7 +3,7 @@ class ArtistsController <ApplicationController
 
   def show
     @artist = Artist.find(params[:id])
-    @concerts = Concert.where(headliner: @artist).upcoming
+    @concerts = Concert.shows(@artist).upcoming
   end
   
   def new
