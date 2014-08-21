@@ -14,7 +14,7 @@ class Concert < ActiveRecord::Base
 
   letsrate_rateable "overall", "selection", "crowd"
 
-  def self.shows(artist)
+  def self.headlining(artist)
     where(headliner: artist)
   end
 

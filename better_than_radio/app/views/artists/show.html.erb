@@ -1,8 +1,10 @@
 <div class="left-container">
-  <h1><%= @artist.name %></h1>
-  <% if @artist.profile_picture.present? %>
-    <%= image_tag(@artist.profile_picture_url(:thumb).to_s) %>
-  <% end %>
+  <div class="name-photo">
+    <div class="artist-name"><h1><%= @artist.name %></h1></div>
+    <% if @artist.profile_picture.present? %>
+      <div class="profile-picture"><%= image_tag(@artist.profile_picture_url(:thumb).to_s) %></div>
+    <% end %>
+  </div>
 
   <% if current_user.account == @artist %>
     <%= link_to "Edit Profile", [:edit, :artist] %>
