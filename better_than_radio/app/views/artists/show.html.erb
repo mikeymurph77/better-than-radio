@@ -1,8 +1,12 @@
 <div class="left-container">
   <div class="name-photo">
-    <div class="artist-name"><h1><%= @artist.name %></h1></div>
+    <div class="artist-name">
+      <h1><%= @artist.name %></h1>
+    </div>
     <% if @artist.profile_picture.present? %>
-      <div class="profile-picture"><%= image_tag(@artist.profile_picture_url(:thumb).to_s) %></div>
+      <div class="profile-picture">
+        <%= image_tag(@artist.profile_picture_url(:thumb).to_s) %>
+      </div>
     <% end %>
   </div>
 
@@ -13,24 +17,34 @@
   <h3>Bio:</h3>
   <%= @artist.bio %>
 
-  <h3>Connect with <%= @artist.name %></h3>
-  <%= link_to "Twitter", @artist.twitter %>
-  <%= link_to "Facebook", @artist.facebook %>
-  <%= link_to "YouTube", @artist.youtube %>
-  <%= link_to "Soundcloud", @artist.soundcloud %>
-  <%= link_to "Myspace", @artist.myspace %>
-  <%= link_to "Beatport", @artist.beatport %>
-  <%= link_to "Tumblr", @artist.tumblr %>
+  <h3>Connect:</h3>
+  <%= render "social_links" %>
 </div>
 
 <div class="right-container">
-  <h2>Upcoming shows</h2>
+  <h2 class="upcoming-shows-heading">Upcoming shows</h2>
   <% @concerts.each do |concert| %>
-      <li>
-        <%= concert.date.to_formatted_s(:long_ordinal) %> 
-        at <%= link_to concert.venue.name, :venue %>. 
-        <%= link_to "See more", concert %> 
-        or <%= link_to "Purchase Tickets", concert.tickets %> 
-      </li>
+      <ul class="artist-upcomings">
+        <div class="venue-google-map">
+          <%= link_to google_map_tag(concert.venue.static_map_location), google_map_link(concert.venue.static_map_location), target: "_blank" %>
+        </div>
+        <div class="concert-date">
+          <%= concert.date.to_formatted_s(:long_ordinal) %>
+        </div>
+        <div class="concert-venue-name">
+          At: <%= link_to concert.venue.name, concert.venue %>
+        </div>
+        <% if concert.opening_acts.present? %>
+          <div class="concert-opening-acts">
+            <span class="with">With: </span>
+            <% concert.opening_acts.each do |opening_act| %>
+              <%= link_to opening_act.artist.name, opening_act.artist %>, 
+            <% end %>
+          </div>
+        <% end %>
+        <div class="more-details">
+          <%= link_to "More Details", concert %>
+        </div>
+      </ul>
     <% end %>
 </div>

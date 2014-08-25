@@ -1,0 +1,52 @@
+.top-nav-bar {
+  @include span-columns(12);
+
+  .logo {
+    @include span-columns(7);
+    display: inline-block;
+  }
+
+  .user-name-nav {
+    @include span-columns(4);
+    float: right;
+    margin-top: 75px;
+
+    p {
+      float: right;
+    }
+  }
+
+  .navigation {
+    @include span-columns(12);
+    margin-top: 5px;
+    margin-bottom: 15px;
+    background-color: #474747;
+    height: 50px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+
+    a {
+      color: white;
+    }
+
+    img {
+      margin: 11px;
+      height: 30px;
+      width: 30px;
+    }
+
+    img:hover {
+      margin: 11px;
+      height: 30px;
+      width: 30px;
+      box-shadow: 5px 5px 5px gray;
+    }
+    .search {
+      @include span-columns(4);
+      float: right;
+      padding: 5px;
+      padding-right: 14px;
+    }
+  }
+
+}

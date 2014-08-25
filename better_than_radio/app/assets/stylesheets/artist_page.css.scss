@@ -1,0 +1,161 @@
+.left-container { 
+  .artist-name {
+    position: absolute;
+    display: block;
+    box-shadow: 5px 5px 5px gray;
+    margin-top: 150px;
+    font-size: .8em;
+    opacity: 0.8;
+    background-color: #990000;
+    color: white;
+  }
+
+  .profile-picture img {
+    box-shadow: 5px 5px 5px gray;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+  }
+
+  #twitter {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  #twitter img {
+    vertical-align: middle;
+  }
+
+  #facebook {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  #facebook img {
+    vertical-align: middle;
+  }
+
+  #youtube {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  #youtube img {
+    vertical-align: middle;
+  }
+
+  #myspace {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  #myspace img {
+    vertical-align: middle;
+  }
+
+  #tumblr {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  #tumblr img {
+    vertical-align: middle;
+  }
+
+  #website {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  #website img {
+    vertical-align: middle;
+  }
+}
+
+.right-container {
+
+  .upcoming-shows-heading {
+    box-shadow: 5px 5px 5px gray;
+  }
+  
+  .upcoming-shows-heading {
+    text-align: center;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    @include span-columns(12);
+    margin-top: 5px;
+    padding: 5px;
+  }
+
+  .artist-upcomings:hover {
+      box-shadow: 5px 5px 5px gray;
+    }
+
+  .artist-upcomings {
+    min-height: 180px;
+    background-color: whitesmoke;
+    border-radius: 25px;
+    @include span-columns(12);
+    margin-top: 25px;
+    padding: 25px;
+  }
+
+  .concert-date {
+    @include span-columns(7);
+    margin: 5px;
+    display: block;
+    font-weight: bold;
+  }
+
+  .concert-venue-name {
+    @include span-columns(7);
+    margin: 5px;
+    display: block;
+    font-weight: bold;
+  }
+
+  .concert-opeing-acts {
+    @include span-columns(5);
+    margin: 5px;
+    display: block;
+  }
+
+  .more-details {
+    a {
+      margin-left: 200px;
+      color: white;
+      display: inline;
+      background-color: #990000;
+      padding: 10px;
+      border-radius: 3px;
+      font-weight: bold;
+    }
+    
+    a:hover {
+      margin-left: 200px;
+      color: white;
+      display: inline;
+      background-color: #680000;
+      padding: 10px;
+      border-radius: 3px;
+      box-shadow: 2px 2px 2px gray;
+      font-weight: bold;
+    }
+  }
+
+  .venue-google-map {
+    @include span-columns(5);
+    width: 200px;
+    height: 100px;
+  }
+
+  .venue-google-map img {
+    border: 4px solid black;
+    border-radius: 5px;
+  }
+
+  .with {
+    margin-left: 5px;
+    font-weight: bold;
+  }
+}

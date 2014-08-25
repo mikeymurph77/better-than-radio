@@ -52,6 +52,7 @@ class ArtistsController <ApplicationController
       :beatport,
       :tumblr,
       :profile_picture,
+      :video_id,
     )
   end
 end

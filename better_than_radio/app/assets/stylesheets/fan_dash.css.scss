@@ -1,0 +1,87 @@
+.fan-dashboard-container {
+  @include outer-container();
+
+.individual-concerts:hover {
+  box-shadow: 5px 5px 5px gray;
+}  
+
+  .individual-concerts {
+    min-height: 240px;
+    background-color: whitesmoke;
+    border-radius: 25px;
+    @include span-columns(12);
+    margin-top: 25px;
+    padding: 25px;
+
+    .headliner-photo {
+      @include span-columns(3);
+      margin-right: 35px; 
+      
+        img {
+          border-radius: 50%;
+          box-shadow: 5px 5px 5px gray;
+        }
+    }
+
+    .headliner-name {
+      @include span-columns(6);
+      font-size: $base-font-size * 2.2;
+      padding:0 0 10px 0;
+
+      a {
+        font-weight: bold;
+        color: #990000;
+        text-shadow: 4px 4px 2px gray;
+      }
+    }
+
+    .concert-opening-acts {
+      @include span-columns(8);
+      line-height: .5em;
+      min-height: 80px;
+      font-weight: bold;
+      padding-top: 25px;
+
+      a {
+        color: #990000;
+        margin-left: 25px;
+      }
+    }
+
+    .venue-location {
+      @include span-columns(2);
+
+      a {
+        font-weight: bold;
+        color: #990000;
+      }
+    }
+
+    .concert-date {
+      @include span-columns(2);
+    }
+
+    .concert-details {
+      @include span-columns(11);
+      text-align: right;
+
+        a {
+          padding: 10px;
+          color: white;
+          font-weight: bold;
+          background-color: #990000;
+          border-radius: 5px;
+        }
+
+        a:hover {
+          padding: 10px;
+          color: white;
+          font-weight: bold;
+          background-color: #680000;
+          border-radius: 5px;
+          box-shadow: 2px 2px 2px gray;
+        }
+    }
+
+  }
+}

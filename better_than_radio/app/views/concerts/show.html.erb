@@ -4,34 +4,62 @@
   <p><b>Address:</b> <%= @concert.venue.address %> <%= @concert.venue.city %>, <%= @concert.venue.state %></p>
   <%= link_to google_map_tag(@concert.venue.static_map_location), google_map_link(@concert.venue.static_map_location), target: "_blank" %>
   <b>Notes:</b> <%= @concert.additional_info %></p>
-  <%= button_to "Tickets", @concert.tickets %>
+  
+  <div class="tickets">
+    <%= button_to "Purchase Tickets", @concert.tickets %>
+  </div>
+
+  <% if @concert.past? %>
+    <div class="concert-past">
+      <p>This concert already happened.</p>
+      <p>Did you attend? Leave a comment or upload photos of your experience!</p>
+
+      Overall Experience : <%= rating_for @concert, "overall" %>
+      Song Selection : <%= rating_for @concert, "selection" %>
+      Crowd Presence : <%= rating_for @concert, "crowd" %>
+    </div>
+
+  <% else %>
+    <div class="concert-count">
+      <h3>Are you going?</h3>
+      <p><%= pluralize @concert.rsvps.count, "fan" %> said they are...you should too!</p>
+      <div class="going">
+        <%= render "attend_button", target: @concert %>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 
 <div class="right-container">
-  <h1><%= link_to @concert.headliner.name, @concert.headliner %></h1>
-  <%= image_tag(@headliner.profile_picture_url(:featured).to_s) %>
-
-  <% @concert.opening_acts.each do |opening_act| %>
-    <div>
-      <%= image_tag(opening_act.artist.profile_picture_url(:snippet).to_s) %>
-      <h2><%= link_to opening_act.artist.name, opening_act.artist %></h2>
-    </div>
-  <% end %>
+  <div class="headliner">
+    <h1><%= link_to @concert.headliner.name, @concert.headliner %></h1>
+    <h3>Headliner</h3>
+    <%= image_tag(@headliner.profile_picture_url(:featured).to_s) %>
+  </div>
 
   <% if current_user.venue? %>
     <%= link_to "Edit Concert", [:edit, :concert] %>
     <%= link_to "Delete Concert", :concert, method: :delete %>
   <% end %>
 
-  <% if @concert.past? %>
-    <p><em>This concert already happened.</em></p>
-    <p><em>Did you attend? Leave a comment or upload photos of your experience!</em></p>
+  <div class="opening-acts-list">
+    <% if @concert.opening_acts.present? %>
+      <p>Opening Artists</p>
+    <% end %>
+    <% @concert.opening_acts.each do |opening_act| %>
+      <div class="opening-act">
+        <% if opening_act.artist.profile_picture.present? %>
+          <%= link_to image_tag(opening_act.artist.profile_picture_url(:snippet).to_s), opening_act.artist %>
+        <% else %>
+          <%= link_to image_tag("no_photo.jpg"), opening_act.artist %>
+        <% end %>
+        <h2><%= link_to opening_act.artist.name, opening_act.artist %></h2>
+      </div>
+    <% end %>
+  </div>
 
-    Overall Experience : <%= rating_for @concert, "overall" %>
-    Song Selection : <%= rating_for @concert, "selection" %>
-    Crowd Presence : <%= rating_for @concert, "crowd" %>
-    
+  <% if @concert.past? %>
     <h3>Fan Photos</h3>
     <% @photos.each do |photo| %>
       <%= link_to image_tag(photo.image_url(:thumb).to_s), photo %>
@@ -52,10 +80,6 @@
         </div>
       <% end %>
     <% end %>
-
-  <% else %>
-    <p><%= pluralize @concert.rsvps.count, "fan" %> said they are going.</p>
-    <%= render "attend_button", target: @concert %>
   <% end %>
 
   <h3>Leave a comment!</h3>

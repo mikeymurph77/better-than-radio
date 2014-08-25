@@ -44,7 +44,7 @@ p {
 
 a {
   @include transition(color 0.1s linear);
-  color: $base-link-color;
+  color: #990000;
   text-decoration: none;
 
   &:hover {

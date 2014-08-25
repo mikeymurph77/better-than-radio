@@ -1,10 +1,39 @@
-<h1>Fan Dashboard</h2>
+<div class="fan-dashboard-container">
+  <h1>Fan Dashboard</h2>
 
-<% @concerts.each do |concert| %>
-  <li>
-    <%= link_to concert.headliner.name, concert.headliner %>
-    at <%= link_to concert.venue.name, concert.venue %>
-    on <%= concert.date.to_formatted_s(:long_ordinal) %> 
-    <%= link_to "View Concert Details", concert %>
-  </li>
-<% end %>
+  <% @concerts.each do |concert| %>
+    <div class="individual-concerts">
+      <div class="headliner-photo">
+        <% if concert.headliner.profile_picture.present? %>
+          <%= link_to image_tag(concert.headliner.profile_picture_url(:thumb).to_s), concert.headliner %>
+        <% else %>
+          <%= no_photo(concert) %>
+        <% end %>
+      </div>
+      <div class="headliner-name">
+        <%= link_to concert.headliner.name, concert.headliner %>
+      </div>
+      
+      <div class="venue-location">
+        <%= link_to concert.venue.name, concert.venue %>
+      </div>
+      <div class="concert-date">
+        <%= concert.date.to_formatted_s(:long_ordinal) %> 
+      </div>
+
+      <% if concert.opening_acts.present? %>
+        <div class="concert-opening-acts">
+          <p>Performing with:</p>
+          <p>
+            <% concert.opening_acts.each do |opening_act| %>
+              <p><%= link_to opening_act.artist.name, opening_act.artist %></p>
+            <% end %>
+          </p>
+        </div>
+      <% end %>
+      <div class="concert-details">
+        <%= link_to "More Details", concert %>
+      </div>
+    </div>
+  <% end %>
+</div>

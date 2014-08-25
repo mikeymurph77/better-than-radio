@@ -1,0 +1,44 @@
+<div>
+  <div id="twitter">
+    <% if @artist.twitter? %>
+      <%= image_tag("twitter.png") %>
+      <%= link_to "Twitter", @artist.twitter %>
+    <% end %>
+  </div>
+  <div id="facebook">
+    <% if @artist.facebook? %>
+      <%= image_tag("facebook.png") %>
+      <%= link_to "Facebook", @artist.facebook %>
+    <% end %>
+  </div>
+  <div id="youtube">
+    <% if @artist.youtube? %>
+      <%= image_tag("youtube.png") %>
+      <%= link_to "YouTube", @artist.youtube %>
+    <% end %>
+  </div>
+  <div id="soundcloud">
+    <% if @artist.soundcloud? %>
+      <%= image_tag("soundcloud.png") %>
+      <%= link_to "Soundcloud", @artist.soundcloud %>
+    <% end %>
+  </div>
+  <div id="myspace">
+    <% if @artist.myspace? %>
+      <%= image_tag("myspace.png") %>
+      <%= link_to "Myspace", @artist.myspace %>
+    <% end %>
+  </div>
+  <div id="tumblr">
+    <% if @artist.tumblr? %>
+      <%= image_tag("tumblr.png") %>
+      <%= link_to "Tumblr", @artist.tumblr %>
+    <% end %>
+  </div>
+  <div id="website">
+    <% if @artist.website? %>
+      <%= image_tag("globe.png") %>
+      <%= link_to "Website", @artist.website %>
+    <% end %>
+  </div>
+</div>

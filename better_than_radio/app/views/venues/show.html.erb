@@ -1,17 +1,39 @@
-<h2><%= @venue.name %></h2>
-<% if @venue.profile_picture.present? %>
-  <div class="profile-picture"><%= image_tag(@venue.profile_picture_url(:thumb).to_s) %></div>
-<% end %>
+<div class="top-container">
+    <div class="venue-profile-picture">
+      <% if @venue.profile_picture.present? %>
+        <%= image_tag(@venue.profile_picture_url(:thumb).to_s) %>
+      <% else %>
+        <%= no_venue_photo %>
+      <% end %>
+    </div>
 
-<% if current_user.account == @venue %>
-  <%= link_to "Edit Profile", [:edit, :venue] %>
-<% end %>
+  <div class="venue-name">
+    <%= @venue.name %>
+  </div>
 
-<h3>Address: <%= @venue.address %> <%= @venue.city %>, <%= @venue.state %></h3>
-<%= link_to google_map_tag(@venue.static_map_location), google_map_link(@venue.static_map_location), target: "_blank" %>
+  <div class="venue-address">
+    Address: <%= @venue.address %> <%= @venue.city %>, <%= @venue.state %>
+  </div>
 
-<h3>Upcoming Shows</h3>
-<%= render @upcoming_concerts %>
+  <div class="edit-page">
+    <% if current_user.account == @venue %>
+      <%= link_to "Edit Profile", [:edit, :venue] %>
+    <% end %>
+  </div>
+  
+  <div class="venue-google-map">
+    <%= link_to google_map_long(@venue.static_map_location), google_map_link(@venue.static_map_location), target: "_blank" %>
+  </div>
+</div>
 
-<h3>Past Shows</h3>
-<%= render @past_concerts %>
+<div class="bottom-container">
+  <div class="bottom-left">
+    <h3>Upcoming Shows</h3>
+    <%= render @upcoming_concerts %>
+  </div>
+
+  <div class="bottom-right">
+    <h3>Past Shows</h3>
+    <%= render @past_concerts %>
+  </div>
+</div>

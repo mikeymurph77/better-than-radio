@@ -3,6 +3,7 @@
 <head>
   <title>BetterThanRadio</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lobster|Raleway|Arvo">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -14,24 +15,33 @@
 <% end %>
 
 <div class="outer-container">
-  <% if signed_in? %>
-    <% if current_user.account.present? %>
-      <%= link_to image_tag("logo.png"), custom_dashboard_path %>
-      <p>You are signed in as <%= current_user.username %> (<%= link_to "Sign out", session_path, method: :delete %>)</p>
-    <% else %>
-      <%= image_tag("logo.png") %>
-    <% end %>
+  <div class="top-nav-bar">
+    <div class="logo">
+      <% if signed_in? %>
+        <% if current_user.account.present? %>
+          <%= link_to image_tag("logo.png"), custom_dashboard_path %>
+        <% else %>
+          <%= image_tag("logo.png") %>
+        <% end %>
+    </div>
 
     <% if current_user.account.present? %>
-        <p><%= link_to "Dashboard", custom_dashboard_path %>
-        <%= link_to "Profile", current_user.account %></p>
-
+      <div class="user-name-nav">
+        <p>Hello <%= current_user.username %> (<%= link_to "Sign out", session_path, method: :delete %>)</p>
+      </div>
+      
+      <div class="navigation">
+        <%= link_to image_tag("home.png", alt: "Dashboard"), custom_dashboard_path %>
+        <%= link_to image_tag("profile.png", alt: "Profile"), current_user.account %>
+        <div class="search">
         <%= form_tag search_path, method: :get do %>
           <%= text_field_tag :query, params[:query], placeholder: "Search for an Artist or Venue..." %>
-          <%= submit_tag "Search" %>
         <% end %>
+      </div>
+      </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 
   <%= yield %>
 </div>

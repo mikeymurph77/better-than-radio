@@ -52,6 +52,13 @@
     <%= form.label :tumblr, "Tumblr:" %>
     <%= form.text_field :tumblr %>
   </div>
+  <h3>Media</h3>
+  <div>
+    <%= form.label :video_id, "Embed a YouTube video:" %>
+    <p>Only the video id is needed.</p>
+    <p>ex. youtube.com/watch?v=<b>5XyQ8XDgUf4<b></p>
+    <%= form.text_field :video_id, placeholder: "5XyQ8XDgUf4" %>
+  </div>
   <h3>Contact Information</h3>
   <div>
     <%= form.label :contact_name, "Contact Name:" %>

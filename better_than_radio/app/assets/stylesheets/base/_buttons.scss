@@ -7,4 +7,17 @@ input[type="submit"] {
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
+  background-color: #990000;
+}
+
+button,
+input[type="submit"]:hover {
+  @extend %button;
+  @include appearance(none);
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  background-color: #680000;
 }

@@ -1,0 +1,122 @@
+.top-container {
+  @include span-columns(12);
+
+  .venue-profile-picture img {
+    @include span-columns(4);
+    border-radius: 50%;
+    margin: 0px;
+    box-shadow: 5px 5px 5px gray;
+  }
+
+  .venue-name {
+    @include span-columns(8);
+    font-size: 300%;
+    padding-top: 15px;
+    padding-left: 15px;
+  }
+
+  .venue-address {
+    @include span-columns(8);
+    font-size: 150%;
+    padding-left: 15px;
+  }
+
+  .venue-google-map {
+    @include span-columns(12);
+    padding: 10px;
+
+    img {
+      width: 100%;
+      border: 3px solid black;
+      border-radius: 15px;
+      box-shadow: 5px 5px 5px gray;
+    }
+  }
+
+  .edit-page {
+    a {
+      padding-left: 15px;
+    }
+  }
+
+}
+
+.bottom-container {
+  @include span-columns(12);
+
+  .concert {
+    @include span-columns(12);
+    padding: 10px;
+    border-bottom: 1px solid black;
+
+    .headliner-photo img {
+      @include span-columns(3);
+      box-shadow: 5px 5px 5px gray;
+      border-radius: 50%;
+    }
+
+    .headliner-name {
+      @include span-columns(6);
+      padding-left: 10px;
+      display: inline-block;
+
+      a {
+        font-weight: bold;
+        color: #990000;
+      }
+    }
+
+    .concert-date {
+      @include span-columns(6);
+      padding-left: 10px;
+    }
+
+    .more-details {
+      @include span-columns(6);
+
+      a {
+        padding: 10px;
+        margin-left: 230px;
+        color: white;
+        font-weight: bold;
+        background-color: #990000;
+        border-radius: 5px;
+      }
+
+      a:hover {
+        padding: 10px;
+        margin-left: 230px;
+        color: white;
+        font-weight: bold;
+        background-color: #680000;
+        border-radius: 5px;
+        box-shadow: 2px 2px 2px gray;
+      }
+
+    }
+  }
+
+  .bottom-left {
+    background-color: whitesmoke;
+    border-radius: 25px;
+    @include span-columns(6);
+    margin-top: 25px;
+    padding: 25px;
+
+    h3 {
+      text-shadow: 5px 5px 5px gray;
+    }
+  }
+
+  .bottom-right {
+    background-color: whitesmoke;
+    border-radius: 25px;
+    @include span-columns(6);
+    margin-top: 25px;
+    padding: 25px;
+
+    h3 {
+      text-shadow: 5px 5px 5px gray;
+    }
+  }
+}
