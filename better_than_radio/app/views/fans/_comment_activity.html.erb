@@ -1,28 +1,33 @@
 <div class="comment-activity">
-  <% @fan.comments.each do |comment| %>
-    <ul>
-      <div class="photo">
-        <% if @fan.profile_picture.present? %>
-          <%= image_tag(@fan.profile_picture_url(:snippet).to_s) %>
-        <% else %>
-          <%= image_tag("no_photo.jpg") %>
-        <% end %>
-      </div>
-      <div class="comment-body">
-        "<%= comment.body %>"
-      </div>
-      <div class="comment-type">
-        <% if comment.commentable.present? %>
-          <% if comment.commentable_type == "Concert" %>
-            Concert: <%= link_to comment.commentable.headliner.name, comment.commentable %>
+  <h2>Recent Comment Activity</h2>
+  <% if @fan.comments.present? %>
+    <% @fan.comments.each do |comment| %>
+      <ul>
+        <div class="photo">
+          <% if @fan.profile_picture.present? %>
+            <%= image_tag(@fan.profile_picture_url(:snippet).to_s) %>
           <% else %>
-            Photo by: <%= link_to comment.commentable.fan.name, comment.commentable %>
+            <%= image_tag("no_photo.jpg") %>
           <% end %>
-        <% end %>
-      </div>
-      <div class="comment-date">
-        Posted: <%= comment.created_at.strftime("%B %d, %Y") %>
-      </div>
-    </ul>
+        </div>
+        <div class="comment-body">
+          "<%= comment.body %>"
+        </div>
+        <div class="comment-type">
+          <% if comment.commentable.present? %>
+            <% if comment.commentable_type == "Concert" %>
+              Concert: <%= link_to comment.commentable.headliner.name, comment.commentable %>
+            <% else %>
+              Photo by: <%= link_to comment.commentable.fan.name, comment.commentable %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="comment-date">
+          Posted: <%= comment.created_at.strftime("%B %d, %Y") %>
+        </div>
+      </ul>
+    <% end %>
+  <% else %>
+    <h4><%= @fan.name %> has not commented on anything yet.</h4>
   <% end %>
 </div>

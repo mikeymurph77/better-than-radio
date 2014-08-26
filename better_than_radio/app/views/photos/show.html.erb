@@ -4,10 +4,12 @@
 
 <%= render "uploader_info" %>
 
-<% if @photo.fan == current_account %>
-  <%= link_to "Delete", :photo, method: :delete %>
-  <%= link_to "Edit Description", [:edit, :photo] %>
-<% end %>
+<div class="edit-delete">
+  <% if @photo.fan == current_account %>
+    <%= link_to "Delete Image", :photo, method: :delete %>  |  
+    <%= link_to "Edit Description", [:edit, :photo] %>
+  <% end %>
+</div>
 
 <div class="new-comment-container">
   <h3>Leave a comment!</h3>

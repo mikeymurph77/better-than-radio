@@ -49,6 +49,16 @@
 .concerts-attended {
   @include span-columns(6);
 
+  h2 {
+    text-align: center;
+  }
+
+  h4 {
+    padding: 10px;
+    font-size: 90%;
+    text-align: center;
+    }
+
   ul {
     margin-top: 10px;
     background-color: whitesmoke;
@@ -72,13 +82,22 @@
 
 .comment-activity {
   @include span-columns(6);
-  margin-top: 10px;
-  background-color: whitesmoke;
-  border-radius: 15px;
+
+  h2 {
+    text-align: center;
+  }
+
+  h4 {
+    padding: 10px;
+    font-size: 90%;
+    text-align: center;
+  }
 
   ul {
     @include span-columns(12);
     margin-bottom: -10px;
+    margin-top: 10px;
+    background-color: whitesmoke;
 
     .photo {
       @include span-columns(2);
@@ -116,5 +135,4 @@
   ul + ul {
     border-top: 1px dotted black;
   }
-
 }
