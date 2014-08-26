@@ -1,7 +1,11 @@
 <% @fan.rsvps.each do |rsvp| %>
   <ul>
     <div class="rsvp-photo">
-      <%= image_tag(rsvp.concert.headliner.profile_picture_url(:snippet).to_s) %>
+      <% if rsvp.concert.headliner.profile_picture.present? %>
+        <%= image_tag(rsvp.concert.headliner.profile_picture_url(:snippet).to_s) %>
+      <% else %>
+        <%= image_tag("no_photo.jpg") %>
+      <% end %>
     </div>
     <div class="headliner-name">
       <%= link_to rsvp.concert.headliner.name, rsvp.concert.headliner %>

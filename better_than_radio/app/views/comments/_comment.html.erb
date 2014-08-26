@@ -1,5 +1,20 @@
-<li>
-  <%= link_to comment.fan.name, comment.fan %>
-  - <%= comment.body %> 
-  <%= time_ago_in_words(comment.created_at) %> ago.
-</li>
+<div class="comment">
+  <ul>
+    <div class="photo">
+      <% if comment.fan.profile_picture.present? %>
+        <%= link_to image_tag(comment.fan.profile_picture_url(:snippet).to_s), comment.fan %>
+      <% else %>
+        <%= link_to image_tag("no_photo.jpg"), comment.fan %>
+      <% end %>
+    </div>
+    <div class="name">
+      <%= link_to comment.fan.name, comment.fan %>
+    </div>
+    <div class="created-at">
+      <%= time_ago_in_words(comment.created_at) %> ago
+    </div>
+    <div class="body">
+      <%= comment.body %>
+    </div>
+  </ul>
+</div>

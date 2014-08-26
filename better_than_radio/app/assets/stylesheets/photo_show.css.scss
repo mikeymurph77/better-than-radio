@@ -58,18 +58,24 @@
 
 .new-comment-container {
   @include span-columns(8);
+  margin-top: 15px;
   margin-left: 160px;
 
   .comment-field {
     @include span-columns(9);
+    margin-left: 20px;
   }
 
   .submit {
-    @include span-columns(3);
+    @include span-columns(2);
   }
 }
 
 .all-comments {
   @include span-columns(8);
   margin-left: 160px;
+
+  ul + ul {
+    border-top: 1px dotted black;
+  }
 }

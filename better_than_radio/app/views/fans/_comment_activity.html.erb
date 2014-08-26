@@ -12,10 +12,12 @@
         "<%= comment.body %>"
       </div>
       <div class="comment-type">
-        <% if comment.commentable_type == "Concert" %>
-          Concert: <%= link_to comment.commentable.headliner.name, comment.commentable %>
-        <% else %>
-          Photo by: <%= link_to comment.commentable.fan.name, comment.commentable %>
+        <% if comment.commentable.present? %>
+          <% if comment.commentable_type == "Concert" %>
+            Concert: <%= link_to comment.commentable.headliner.name, comment.commentable %>
+          <% else %>
+            Photo by: <%= link_to comment.commentable.fan.name, comment.commentable %>
+          <% end %>
         <% end %>
       </div>
       <div class="comment-date">
