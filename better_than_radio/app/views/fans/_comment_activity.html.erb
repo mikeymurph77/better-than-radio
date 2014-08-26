@@ -1,0 +1,26 @@
+<div class="comment-activity">
+  <% @fan.comments.each do |comment| %>
+    <ul>
+      <div class="photo">
+        <% if @fan.profile_picture.present? %>
+          <%= image_tag(@fan.profile_picture_url(:snippet).to_s) %>
+        <% else %>
+          <%= image_tag("no_photo.jpg") %>
+        <% end %>
+      </div>
+      <div class="comment-body">
+        "<%= comment.body %>"
+      </div>
+      <div class="comment-type">
+        <% if comment.commentable_type == "Concert" %>
+          Concert: <%= link_to comment.commentable.headliner.name, comment.commentable %>
+        <% else %>
+          Photo by: <%= link_to comment.commentable.fan.name, comment.commentable %>
+        <% end %>
+      </div>
+      <div class="comment-date">
+        Posted: <%= comment.created_at.strftime("%B %d, %Y") %>
+      </div>
+    </ul>
+  <% end %>
+</div>

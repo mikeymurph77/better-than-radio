@@ -1,0 +1,75 @@
+.main-photo {
+  @include span-columns(12);
+  text-align: center;
+
+  img {
+    box-shadow: 5px 5px 5px gray;
+  }
+}
+
+.about-photo {
+  @include span-columns(8);
+  background-color: #191919;
+  margin-left: 160px;
+  padding: 10px;
+
+  .photo-author {
+    @include span-columns(2);
+
+    img {
+      border-radius: 50%;
+      box-shadow: 3px 3px 5px gray;
+
+    }
+  }
+
+  .photo-location {
+    color: white;
+    font-weight: bold;
+
+    a {
+      color: #CC0000;
+    }
+
+    a:hover {
+      color: red;
+    }
+
+  }
+
+  .author-name {
+    color: white;
+    font-weight: bold;
+
+    a {
+      color: #CC0000;
+    }
+
+    a:hover {
+      color: red;
+    }
+  }
+
+  .description {
+    color: white;
+
+  }
+}
+
+.new-comment-container {
+  @include span-columns(8);
+  margin-left: 160px;
+
+  .comment-field {
+    @include span-columns(9);
+  }
+
+  .submit {
+    @include span-columns(3);
+  }
+}
+
+.all-comments {
+  @include span-columns(8);
+  margin-left: 160px;
+}

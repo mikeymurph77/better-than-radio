@@ -1,9 +1,13 @@
 <% if current_user.fan?%>
   <div>
     <% if target.attendings.include?(current_account) %>
-      <%= button_to "Not going anymore", [target, :rsvp], method: :delete %>
+      <div class="not-going">
+        <%= button_to "Not going anymore", [target, :rsvp], method: :delete %>
+      </div>
     <% else %>
-      <%= button_to "I'm Going!", [target, :rsvp] %>
+      <div class="going">
+        <%= button_to "I'm Going!", [target, :rsvp] %>
+      </div>
     <% end %>
   </div>
 <% end %>

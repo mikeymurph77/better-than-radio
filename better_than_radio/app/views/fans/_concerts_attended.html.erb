@@ -1,0 +1,19 @@
+<% @fan.rsvps.each do |rsvp| %>
+  <ul>
+    <div class="rsvp-photo">
+      <%= image_tag(rsvp.concert.headliner.profile_picture_url(:snippet).to_s) %>
+    </div>
+    <div class="headliner-name">
+      <%= link_to rsvp.concert.headliner.name, rsvp.concert.headliner %>
+    </div>
+    <div class="concert-date">
+      <%= rsvp.concert.date.to_formatted_s(:long_ordinal) %>
+    </div>
+    <div class="venue-name">
+      <%= link_to rsvp.concert.venue.name, rsvp.concert.venue %>
+    </div>
+    <div class="event-details">
+      <%= link_to "See Event", rsvp.concert %>
+    </div>
+  </ul>
+<% end %>
