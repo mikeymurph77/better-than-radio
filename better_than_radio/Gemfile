@@ -15,6 +15,7 @@ gem "carrierwave"
 gem "rmagick", require: "RMagick"
 gem "letsrate"
 gem "geocoder"
+gem "kaminari"
 
 group :development do
   gem "pry-rails"

@@ -30,10 +30,12 @@
   <div class="bottom-left">
     <h3>Upcoming Shows</h3>
     <%= render @upcoming_concerts %>
+    <%= paginate @upcoming_concerts %>
   </div>
 
   <div class="bottom-right">
     <h3>Past Shows</h3>
     <%= render @past_concerts %>
+    <%= paginate @past_concerts %>
   </div>
 </div>

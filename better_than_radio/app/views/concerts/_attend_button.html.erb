@@ -3,7 +3,7 @@
     <% if target.attendings.include?(current_account) %>
       <%= button_to "Not going anymore", [target, :rsvp], method: :delete %>
     <% else %>
-      <%= button_to "Going?", [target, :rsvp] %>
+      <%= button_to "I'm Going!", [target, :rsvp] %>
     <% end %>
   </div>
 <% end %>

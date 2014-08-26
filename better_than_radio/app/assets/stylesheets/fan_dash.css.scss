@@ -84,4 +84,21 @@
     }
 
   }
+
+  .paginate {
+    font-weight: bold;
+    font-size: 1.2em;
+    float: right;
+
+    a {
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+
+    a:hover {
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #680000;
+    }
+  }
 }

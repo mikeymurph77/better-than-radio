@@ -1,0 +1,24 @@
+<% @concerts.each do |concert| %>
+      <ul class="artist-upcomings">
+        <div class="venue-google-map">
+          <%= link_to google_map_tag(concert.venue.static_map_location), google_map_link(concert.venue.static_map_location), target: "_blank" %>
+        </div>
+        <div class="concert-date">
+          <%= concert.date.to_formatted_s(:long_ordinal) %>
+        </div>
+        <div class="concert-venue-name">
+          At: <%= link_to concert.venue.name, concert.venue %>
+        </div>
+        <% if concert.opening_acts.present? %>
+          <div class="concert-opening-acts">
+            <span class="with">With: </span>
+            <% concert.opening_acts.each do |opening_act| %>
+              <%= link_to opening_act.artist.name, opening_act.artist %>, 
+            <% end %>
+          </div>
+        <% end %>
+        <div class="more-details">
+          <%= link_to "More Details", concert %>
+        </div>
+      </ul>
+    <% end %>

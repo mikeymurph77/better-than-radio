@@ -7,8 +7,8 @@ class VenuesController < ApplicationController
 
   def show
     @venue = Venue.find(params[:id])
-    @upcoming_concerts = Concert.where(venue: @venue).upcoming
-    @past_concerts = Concert.where(venue: @venue).already_happened
+    @upcoming_concerts = Concert.where(venue: @venue).upcoming.page params[:page]
+    @past_concerts = Concert.where(venue: @venue).already_happened.page params[:page]
   end
 
   def create
