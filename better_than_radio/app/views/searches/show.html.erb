@@ -1,21 +1,23 @@
-<h2>You searched for <%= @query %>. Here are your results!</h2>
-<div>
-  Artists
-  <div>
-    <% if @artists.present? %>
-      <%= render "artist_search_results" %>
-    <% else %>
-      Sorry, there are no Artists by the name <%= @query %>
-    <% end %>
+<h2>You searched for "<%= @query %>". Here are your results!</h2>
+<div class="search-container">
+  <div class="artist-search-container">
+    <h3>Artists:</h3>
+    <div class="artist-search">
+      <% if @artists.present? %>
+        <%= render "artist_search_results" %>
+      <% else %>
+        <h4>Sorry, there are no Artists by the name "<%= @query %>"</h4>
+      <% end %>
+    </div>
   </div>
-</div>
-<div>
-  Venues:
-  <div>
-    <% if @venues.present? %>
-      <%= render "venue_search_results" %>
-    <% else %>
-      Sorry, there are no venues by the name <%= @query %>
-    <% end %>
+  <div class="venue-search-container">
+    <h3>Venues:</h3>
+    <div class="venue-search">
+      <% if @venues.present? %>
+        <%= render "venue_search_results" %>
+      <% else %>
+        <h4>Sorry, there are no venues by the name "<%= @query %>"</h4>
+      <% end %>
+    </div>
   </div>
 </div>

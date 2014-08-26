@@ -4,15 +4,13 @@
   <p><b>Address:</b> <%= @concert.venue.address %> <%= @concert.venue.city %>, <%= @concert.venue.state %></p>
   <%= link_to google_map_tag(@concert.venue.static_map_location), google_map_link(@concert.venue.static_map_location), target: "_blank" %>
   <b>Notes:</b> <%= @concert.additional_info %></p>
-  
-  <div class="tickets">
-    <%= button_to "Purchase Tickets", @concert.tickets %>
-  </div>
 
   <% if @concert.past? %>
     <div class="concert-past">
-      <p>This concert already happened.</p>
-      <p>Did you attend? Leave a comment or upload photos of your experience!</p>
+      <div class="past-message">
+        <b>Alert:</b> This concert already happened.
+        Did you attend? Leave a comment or upload photos of your experience!
+      </div>
 
       Overall Experience : <%= rating_for @concert, "overall" %>
       Song Selection : <%= rating_for @concert, "selection" %>
@@ -20,6 +18,9 @@
     </div>
 
   <% else %>
+    <div class="tickets">
+      <%= button_to "Purchase Tickets", @concert.tickets %>
+    </div>
     <div class="concert-count">
       <h3>Are you going?</h3>
       <p><%= pluralize @concert.rsvps.count, "fan" %> said they are...you should too!</p>
@@ -30,12 +31,17 @@
   <% end %>
 </div>
 
-
 <div class="right-container">
   <div class="headliner">
     <h1><%= link_to @concert.headliner.name, @concert.headliner %></h1>
     <h3>Headliner</h3>
-    <%= image_tag(@headliner.profile_picture_url(:featured).to_s) %>
+    <div class="headliner-photo">
+      <% if @headliner.profile_picture.present? %>
+        <%= image_tag(@headliner.profile_picture_url(:featured).to_s) %>
+      <% else %>
+        <%= image_tag("no_photo.jpg") %>
+      <% end %>
+    </div>
   </div>
 
   <% if current_user.venue? %>

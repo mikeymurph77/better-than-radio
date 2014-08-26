@@ -22,6 +22,10 @@ class Concert < ActiveRecord::Base
     upcoming.first
   end
 
+  def self.last_concert
+    already_happened.first
+  end
+
   def self.upcoming
     next_first.after_today
   end

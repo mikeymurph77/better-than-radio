@@ -47,7 +47,6 @@
   .concert {
     @include span-columns(12);
     padding: 10px;
-    border-bottom: 1px solid black;
 
     .headliner-photo img {
       @include span-columns(3);
@@ -96,6 +95,10 @@
     }
   }
 
+  .concert + .concert {
+    border-top: 1px solid black;
+  }
+
   .bottom-left {
     background-color: whitesmoke;
     border-radius: 25px;
@@ -104,7 +107,9 @@
     padding: 25px;
 
     h3 {
-      text-shadow: 5px 5px 5px gray;
+      text-align: center;
+      padding-bottom: 10px;
+      border-bottom: 3px solid black;
     }
   }
 
@@ -116,7 +121,9 @@
     padding: 25px;
 
     h3 {
-      text-shadow: 5px 5px 5px gray;
+      text-align: center;
+      padding-bottom: 10px;
+      border-bottom: 3px solid black;
     }
   }
 }

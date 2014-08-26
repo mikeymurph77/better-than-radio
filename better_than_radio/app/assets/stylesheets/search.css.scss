@@ -1,0 +1,63 @@
+.search-container {
+  @include span-columns(12);
+
+  .artist-search-container {
+    @include span-columns(6);
+
+    ul {
+      @include span-columns(12);
+      padding: 10px;
+      background-color: whitesmoke;
+
+      .artist-photo {
+        @include span-columns(3);
+
+        img{
+          border-radius: 50%;
+          box-shadow: 3px 3px 5px gray;
+        }
+      }
+
+      .artist-name {
+        a {
+          font-weight: bold;
+          font-size: 130%
+        }
+      }
+    }
+
+    ul + ul {
+      border-top: 1px solid black;
+    }
+  }
+
+  .venue-search-container {
+    @include span-columns(6);
+
+    ul {
+      @include span-columns(12);
+      padding: 10px;
+      background-color: whitesmoke;
+
+      .venue-photo {
+        @include span-columns(3);
+
+        img{
+          border-radius: 50%;
+          box-shadow: 3px 3px 5px gray;
+        }
+      }
+
+      .venue-name {
+        a {
+          font-weight: bold;
+          font-size: 130%
+        }
+      }
+    }
+
+    ul + ul {
+      border-top: 1px solid black;
+    }
+  }
+}

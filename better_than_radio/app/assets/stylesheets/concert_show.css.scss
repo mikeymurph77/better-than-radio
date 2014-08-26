@@ -22,9 +22,13 @@
     color: white;
   }
   
-  img {
-    border-radius: 50%;
-    box-shadow: 5px 5px 5px gray;
+  .headliner-photo{
+    @include span-columns(6);
+
+    img {
+      border-radius: 50%;
+      box-shadow: 5px 5px 5px gray;
+    }
   }
 }
 .left-container {
@@ -51,6 +55,14 @@
 
     p {
       text-align: center;
+    }
+  }
+
+  .concert-past {
+    .past-message {
+      background-color: #E6E680;
+      padding: 5px;
+      border-radius: 10px;
     }
   }
 }

@@ -1,9 +1,21 @@
-<h2>Venue Dashboard</h2>
+<div class="dashboard-header">
+  <h2><%= current_account.name %>'s Dashboard</h2>
+</div>
 
-<%= link_to "Add a Concert", [:new, :concert] %>
+<div class="add-concert">
+  <%= link_to "Add A New Concert", [:new, :concert] %>
+</div>
 
-<h3>Upcoming Shows</h3>
-<%= render @upcoming_concerts %>
+<div class="show-container">
+  <div class="upcoming-shows">
+    <h3>Upcoming Shows</h3>
+    <%= render @upcoming_concerts %>
+    <%= paginate @upcoming_concerts %>
+  </div>
 
-<h3>Past Shows</h3>
-<%= render @past_concerts %>
+  <div class="past-shows">
+    <h3>Past Shows</h3>
+    <%= render @past_concerts %>
+    <%= paginate @past_concerts %>
+  </div>
+</div>
