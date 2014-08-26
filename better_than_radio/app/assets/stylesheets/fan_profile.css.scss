@@ -1,0 +1,138 @@
+.profile-header {
+  @include span-columns(12);
+
+  .profile-picture {
+    img {
+      border-radius: 50%;
+      box-shadow: 5px 5px 5px gray;
+    }
+  }
+
+  h2 {
+    display: inline;
+    position: absolute;
+    margin-top: 120px;
+    margin-left: 145px;
+    background-color: #990000;
+    opacity: .8;
+    color: white;    
+  }
+
+  h3 {
+    display: inline;
+    position: absolute;
+    margin-top: 160px;
+    margin-left: 145px;
+    background-color: black;
+    opacity: .8;
+    color: white;    
+  }
+}
+
+.edit-profile {
+  @include span-columns(12);
+  padding-left: 145px;
+  font-weight: bold;
+
+  a {
+    padding: 5px;
+  }
+
+  a:hover {
+    background-color: #990000;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+  }
+}
+
+.concerts-attended {
+  @include span-columns(6);
+
+  h2 {
+    text-align: center;
+  }
+
+  h4 {
+    padding: 10px;
+    font-size: 90%;
+    text-align: center;
+    }
+
+  ul {
+    margin-top: 10px;
+    background-color: whitesmoke;
+    border-radius: 15px;
+
+    .rsvp-photo {
+    @include span-columns(2);
+    margin: 10px;
+
+      img {
+        border-radius: 50%;
+        box-shadow: 5px 5px 5px gray;
+      }
+    }
+
+    .headliner-name a {
+      font-weight: bold;
+    }
+  }
+}
+
+.comment-activity {
+  @include span-columns(6);
+
+  h2 {
+    text-align: center;
+  }
+
+  h4 {
+    padding: 10px;
+    font-size: 90%;
+    text-align: center;
+  }
+
+  ul {
+    @include span-columns(12);
+    margin-bottom: -10px;
+    margin-top: 10px;
+    background-color: whitesmoke;
+
+    .photo {
+      @include span-columns(2);
+      margin: 10px;
+
+      img {
+        border-radius: 50%;
+        box-shadow: 5px 5px 5px gray;
+      }
+    }
+
+    .comment-body {
+      @include span-columns(9);
+      font-style: italic;
+      margin-top: 15px;
+    }
+
+    .comment-type {
+      @include span-columns(9);
+      text-align: right;
+      font-size: 80%;
+      float: right;
+    }
+
+    .comment-date {
+      @include span-columns(9);
+      margin-bottom: 15px;
+      text-align: right;
+      font-size: 80%;
+      float: right;
+      padding-right: 14px;
+    }
+  }
+
+  ul + ul {
+    border-top: 1px dotted black;
+  }
+}

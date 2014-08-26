@@ -1,0 +1,26 @@
+.comment {
+  @include span-columns(12);
+  margin: 10px;
+
+  .photo {
+    @include span-columns(2);
+    img {
+      border-radius: 50%;
+    }
+  }
+
+  .name {
+    a {
+      font-weight: bold;
+    }
+  }
+
+  .body {
+    font-style: italic;
+  }
+
+  .created-at {
+    margin-top: -5px;
+    font-size: 75%;
+  }
+}

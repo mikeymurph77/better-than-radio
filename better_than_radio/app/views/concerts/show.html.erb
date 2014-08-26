@@ -23,7 +23,7 @@
     <div class="concert-count">
       <h3>Are you going?</h3>
       <p><%= pluralize @concert.rsvps.count, "fan" %> said they are...you should too!</p>
-      <div class="going">
+      <div class="goings">
         <%= render "attend_button", target: @concert %>
       </div>
     </div>

@@ -1,9 +1,31 @@
-<%= image_tag @photo.image_url(:show).to_s %>
-<%= link_to @photo.concert.headliner.name, @photo.concert.headliner %>
-<%= @photo.description %>
-Photo by: <%= @photo.fan.name %>
+<div class="main-photo">
+  <%= image_tag @photo.image_url(:show).to_s %>
+</div>
 
-<% if @photo.fan == current_account %>
-  <%= link_to "Delete", :photo, method: :delete %>
-  <%= link_to "Edit Description", [:edit, :photo] %>
-<% end %>
+<%= render "uploader_info" %>
+
+<div class="edit-delete">
+  <% if @photo.fan == current_account %>
+    <%= link_to "Delete Image", :photo, method: :delete %>  |  
+    <%= link_to "Edit Description", [:edit, :photo] %>
+  <% end %>
+</div>
+
+<div class="new-comment-container">
+  <h3>Leave a comment!</h3>
+    <% if current_user.fan? %>
+      <%= form_for [@photo, @comment], id: "photo_comment" do |form| %>
+        <div class="comment-field">
+          <%= form.text_field :body, placeholder: "Add Comment" %>
+        </div>
+        <div class="submit">
+          <%= form.submit "Comment" %>
+        </div>
+      <% end %>
+    <% end %>
+</div>
+
+<div class="all-comments">
+  <h3>Comments</h3>
+  <%= render @comments %>
+</div>

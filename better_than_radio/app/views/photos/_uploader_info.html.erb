@@ -1,0 +1,29 @@
+<div class="about-photo">
+  <div class="photo-author">
+    <% if @photo.fan.profile_picture.present? %>
+      <%= link_to image_tag(@photo.fan.profile_picture_url(:snippet).to_s), @photo.fan %>
+    <% else %>
+      <%= link_to image_tag("no_photo.jpg"), @photo.fan %>
+    <% end %>
+  </div>
+
+  <div class="photo-location">
+    <div class="show">
+      Show: <%= link_to @photo.concert.headliner.name, @photo.concert.headliner %>
+      on <%= @photo.concert.date.to_formatted_s(:long_ordinal) %>
+    </div>
+    <div class="location">
+      Location: <%= link_to @photo.concert.venue.name, @photo.concert.venue %> in <%= @photo.concert.venue.city %>, <%= @photo.concert.venue.state %>
+    </div>
+  </div>
+
+  <div class="author-name">
+    Photo by: <%= link_to @photo.fan.name, @photo.fan %>
+  </div>
+
+  <div class="description">
+    <% if @photo.description.present? %>
+      <b>Description:</b> <%= @photo.description %>
+    <% end %>
+  </div>
+</div>

@@ -16,7 +16,9 @@ Rails.application.routes.draw do
     resource :rsvp, only: [:create, :destroy]
   end
 
-  resources :photos, only: [:show, :destroy, :edit, :update]
+  resources :photos, only: [:show, :destroy, :edit, :update] do
+    resources :comments, only: [:create]
+  end
 
   resource :fan_dashboard, only: [:show]
   resource :artist_dashboard, only: [:show]

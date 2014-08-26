@@ -1,5 +1,6 @@
 class FansController < ApplicationController
   skip_before_action :require_account, only: [:new, :create]
+  before_action :ensure_fan_owner, only: [:edit, :update]
 
   def show
     @fan = Fan.find(params[:id])

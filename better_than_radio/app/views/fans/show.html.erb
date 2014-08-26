@@ -1,17 +1,19 @@
-<h2><%= @fan.name %></h2>
+<div class="profile-header">
+  <div class="profile-picture">
+    <h2><%= @fan.name %></h2>
+    <h3>Fan</h3>
+    <% if @fan.profile_picture.present? %>
+      <%= image_tag(@fan.profile_picture_url(:thumb).to_s) %>
+    <% else %>
+      <%= image_tag("no_photo.jpg") %>
+    <% end %>
+  </div>
+</div>
 
-<% if @fan.profile_picture.present? %>
-  <%= image_tag(@fan.profile_picture_url(:thumb).to_s) %>
-<% end %>
+<div class="edit-profile">
+  <%= link_to "Edit Profile", [:edit, :fan] %>
+</div>
 
-<%= link_to "Edit Profile", [:edit, :fan] %>
+<%= render "concerts_attended" %>
 
-<h2>Concerts <%= @fan.name %> Attended</h2>
-<% @fan.rsvps.each do |rsvp| %>
-  <ul>
-    <%= image_tag(rsvp.concert.headliner.profile_picture_url(:snippet).to_s) %>
-    <%= rsvp.concert.headliner.name %>
-    <%= rsvp.concert.date.to_formatted_s(:long_ordinal) %>
-    <%= link_to "See Event", rsvp.concert %>
-  </ul>
-<% end %>
+<%= render "comment_activity" %>

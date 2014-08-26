@@ -1,0 +1,30 @@
+<div class="concerts-attended">
+  <h2>Concerts <%= @fan.name %> Attended</h2>
+  <% if @fan.rsvps.present? %>
+    <% @fan.rsvps.each do |rsvp| %>
+      <ul>
+        <div class="rsvp-photo">
+          <% if rsvp.concert.headliner.profile_picture.present? %>
+            <%= image_tag(rsvp.concert.headliner.profile_picture_url(:snippet).to_s) %>
+          <% else %>
+            <%= image_tag("no_photo.jpg") %>
+          <% end %>
+        </div>
+        <div class="headliner-name">
+          <%= link_to rsvp.concert.headliner.name, rsvp.concert.headliner %>
+        </div>
+        <div class="concert-date">
+          <%= rsvp.concert.date.to_formatted_s(:long_ordinal) %>
+        </div>
+        <div class="venue-name">
+          <%= link_to rsvp.concert.venue.name, rsvp.concert.venue %>
+        </div>
+        <div class="event-details">
+          <%= link_to "See Event", rsvp.concert %>
+        </div>
+      </ul>
+    <% end %>
+  <% else %>
+      <h4><%= @fan.name %> has not attened any shows yet.</h4>
+  <% end %>
+</div>

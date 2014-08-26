@@ -14,6 +14,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def ensure_fan_owner
+    @owner = current_account
+    unless Fan.find(params[:id]) == @owner
+      redirect_to custom_dashboard_path
+    end
+  end
+
   def custom_dashboard_path
     polymorphic_path("#{current_user.account_type.downcase}_dashboard".to_sym)
   end
