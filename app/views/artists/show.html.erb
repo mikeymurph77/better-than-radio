@@ -5,7 +5,11 @@
     </div>
     <% if @artist.profile_picture.present? %>
       <div class="profile-picture">
-        <%= image_tag(@artist.profile_picture_url(:thumb).to_s) %>
+        <% if @artist.profile_picture.present? %>
+          <%= image_tag(@artist.profile_picture_url(:thumb).to_s) %>
+        <% else %>
+          <%= image_tag("no_photo.jpg") %>
+        <% end %>
       </div>
     <% end %>
   </div>

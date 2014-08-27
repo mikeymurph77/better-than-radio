@@ -2,6 +2,8 @@
   @include span-columns(12);
 
   .profile-picture {
+    @include span-columns(3);
+
     img {
       border-radius: 50%;
       box-shadow: 5px 5px 5px gray;
