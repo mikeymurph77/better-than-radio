@@ -1,5 +1,12 @@
+<div class="account-container">  
   <h2>Select your account type</h2>
-
-  <%= link_to "Fan Account", [:new, :fan] %>
-  <%= link_to "Artist Account", [:new, :artist] %> 
-  <%= link_to "Venue Account", [:new, :venue] %>
+  <div class="fan-account">
+    <%= link_to "Fan Account", [:new, :fan] %>
+  </div>
+  <div class="artist-account">
+    <%= link_to "Artist Account", [:new, :artist] %>
+  </div>
+  <div class="venue-account">
+    <%= link_to "Venue Account", [:new, :venue] %>
+  </div>
+</div>

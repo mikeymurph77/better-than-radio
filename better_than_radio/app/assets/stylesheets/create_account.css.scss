@@ -1,0 +1,83 @@
+.account-container {
+  @include span-columns(12);
+
+  h2 {
+    text-align: center;
+  }
+
+  .fan-account {
+    @include span-columns(4);
+    text-align: center;
+    margin-top: 40px;
+
+    a {
+      background-color: #990000;
+      padding: 20px;
+      color: white;
+      border-radius: 15px;
+      font-weight: bold;
+      font-size: 170%;
+    }
+
+    a:hover {
+      background-color: #680000;
+      padding: 20px;
+      color: white;
+      border-radius: 15px;
+      font-weight: bold;
+      font-size: 170%;
+      box-shadow: 5px 5px 5px gray;
+    }
+  }
+
+  .artist-account {
+    @include span-columns(4);
+    text-align: center;
+    margin-top: 40px;
+
+    a {
+      background-color: #990000;
+      padding: 20px;
+      color: white;
+      border-radius: 15px;
+      font-weight: bold;
+      font-size: 170%;
+    }
+
+    a:hover {
+      background-color: #680000;
+      padding: 20px;
+      color: white;
+      border-radius: 15px;
+      font-weight: bold;
+      font-size: 170%;
+      box-shadow: 5px 5px 5px gray;
+    }
+  }
+
+  .venue-account {
+    @include span-columns(4);
+    text-align: center;
+    margin-top: 40px;
+
+    a {
+      background-color: #990000;
+      padding: 20px;
+      color: white;
+      border-radius: 15px;
+      font-weight: bold;
+      font-size: 170%;
+    }
+
+    a:hover {
+      background-color: #680000;
+      padding: 20px;
+      color: white;
+      border-radius: 15px;
+      font-weight: bold;
+      font-size: 170%;
+      box-shadow: 5px 5px 5px gray;
+    }
+  }
+
+}
