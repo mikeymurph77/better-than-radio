@@ -1,13 +1,27 @@
 <% @artists.each do|artist| %>
-  <li>
-    <%= image_tag(artist.profile_picture_url(:snippet)) %>
-    <%= link_to artist.name, artist %>
-    <% if artist.concerts.present? %>
-      Next Show:
-      <%= link_to artist.concerts.next_concert.date.to_formatted_s(:long_ordinal), artist.concerts.next_concert %>
-      at <%= link_to artist.concerts.next_concert.venue.name %>
-    <% else %>
-      No show scheduled at this time
-    <% end %>
-  </li>
+  <ul>
+    <div class="artist-photo">
+      <% if artist.profile_picture.present? %>
+        <%= link_to image_tag(artist.profile_picture_url(:snippet)), artist %>
+      <% else %>
+        <%= link_to image_tag("no_photo.jpg"), artist %>
+      <% end %>
+    </div>
+    <div class="artist-name">
+      <%= link_to artist.name, artist %>
+    </div>
+    <div class="next-concert">
+      <% if artist.concerts.present? %>
+        Next Show:
+        <%= link_to artist.concerts.next_concert.date.to_formatted_s(:long_ordinal), artist.concerts.next_concert %>
+        at <%= link_to artist.concerts.next_concert.venue.name %>
+      </br>
+        Last Show:
+        <%= link_to artist.concerts.last_concert.date.to_formatted_s(:long_ordinal), artist.concerts.last_concert %>
+        at <%= link_to artist.concerts.last_concert.venue.name %>
+      <% else %>
+        No shows scheduled at this time
+      <% end %>
+    </div>
+  </ul>
 <% end %>

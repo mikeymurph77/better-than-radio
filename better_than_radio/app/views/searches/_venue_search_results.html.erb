@@ -1,6 +1,17 @@
 <% @venues.each do|venue| %>
-    <li>
-      <%= image_tag(venue.profile_picture_url(:snippet)) %>
-      <%= link_to venue.name, venue %>
-    </li>
+    <ul>
+      <div class="venue-photo">
+        <% if venue.profile_picture.present? %>
+          <%= link_to image_tag(venue.profile_picture_url(:snippet)), venue %>
+        <% else %>
+          <%= link_to image_tag("no_photo.jpg"), venue %>
+        <% end %>
+      </div>
+      <div class="venue-name">
+        <%= link_to venue.name, venue %>
+      </div>
+      <div class="venue-location">
+        <%= venue.city %>, <%= venue.state %>
+      </div>
+    </ul>
 <% end %>
